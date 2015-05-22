@@ -1,4 +1,5 @@
-# I ♥ BBQ
+![I ♥ BBQ](/docs/logos/vertical-logo-small.png)
+
 ## General Assembly WDI Project 3
 ### Group Pikachu
 
@@ -13,4 +14,11 @@ This app is a BBQ planning app for NYC. City-wide bbq locations and nearby groce
 
 #Routes
 
- 
+
+#Libraries
+
+- Ruby on Rails
+- jQuery
+- Snazzy Maps
+- Google Maps
+- SendGrid
