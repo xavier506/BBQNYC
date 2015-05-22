@@ -7,7 +7,7 @@ This app is a BBQ planning app for NYC. City-wide bbq locations and nearby groce
 
 
 #ERD
-
+![I ♥ BBQ Entity Relationship Diagram](/docs/BBQ-NYC-ERD.png)
 
 #Wireframes
 
