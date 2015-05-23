@@ -45,6 +45,14 @@
         </p>
       </div>
     </div>
+
+  <div class="row">
+    <div id="radio">
+      <input type="radio" id="radio1" name="radio"><label for="radio1">Im Going</label>
+      <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Im not Going</label>
+    </div>
+  </div>
+
   </body>
 
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -60,15 +68,12 @@
       $( "#slider" ).slider({
         animate: "slow",
         min: 480,
-        max: 1328,
+        max: 1320,
         step: 15,
         value: 840,
         slide: function (e, ui) {
             var hours = Math.floor(ui.value / 60);
             var minutes = ui.value - (hours * 60);
-            console.log(hours);
-            console.log(minutes);
-
             if (hours.length == 1) hours = '0' + hours;
             if (minutes.length == 1) minutes = '0' + minutes;
             if (minutes == 0) minutes = '00';
@@ -92,5 +97,9 @@
         }
       });
     });
+
+  $(function() {
+    $( "#radio" ).buttonset();
+  });
   </script>
 </html>
