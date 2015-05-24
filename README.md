@@ -19,6 +19,8 @@ This app is a BBQ planning app for NYC. City-wide bbq locations and nearby groce
 
 - Ruby on Rails
 - jQuery
+- jQuery UI
+- Foundation CSS 
 - Snazzy Maps
 - Google Maps
 - SendGrid
