@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
 
     <style>
+
+      .centered {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
       ol.steps {
         margin: 0;
         padding: 0;
@@ -18,19 +24,71 @@
         text-align: center;
         line-height: 3em;
       }
-    </style>
 
+      ol.steps[data-steps="2"] li { width: 49%; }
+      ol.steps[data-steps="3"] li { width: 33%; }
+      ol.steps[data-steps="4"] li { width: 24%; }
 
+      ol.steps li.done {
+        color: black;
+        border-bottom: 4px solid yellowgreen;
+      }
+
+      ol.steps li.to-do {
+        color: silver; 
+        border-bottom: 4px solid silver;
+      }
+
+      ol.steps li.done {
+        color: black;
+        border-bottom: 4px solid yellowgreen;
+      }
+
+      ol.steps li.to-do {
+        color: silver; 
+        border-bottom: 4px solid silver;
+      }
+
+      ol.steps li:after {
+       content: "\00a0\00a0";
+      }
+
+      ol.steps li:before {
+        position: relative;
+        bottom: -2.5em;
+        float: left;
+        left: 50%;
+        line-height: 1em;
+      }
+
+      ol.steps li.done:before {
+        content: "\2713";
+        color: white;
+        background-color: yellowgreen;
+        height: 1.2em;
+        width: 1.2em;
+        line-height: 1.2em;
+        border: none;
+        border-radius: 1.2em;
+      }
+     ol.steps li.to-do:before {
+        content: "\039F";
+        color: silver;
+        background-color: white;
+        font-size: 1.5em;
+        bottom: -1.6em;
+      }
+  </style>  
 
   </head>
   <body>
 
-    <div class="row">
-      <ol class="steps">
-        <li>Pick a Spot</li>
-        <li>Select a Date</li>
-        <li>Invite your Friends</li>
-        <li>Grill</li>
+    <div class="row centered">
+      <ol class="steps" data-steps="4">
+        <li class="done">Pick a Spot</li><!--
+ --><li class="done">Select a Date</li><!--
+ --><li class="to-do">Invite your Friends</li><!--
+ --><li class="to-do">Grill</li>
       </ol>
     
     </div>
@@ -60,6 +118,9 @@
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
 
   <script>
+
+
+
     $(function() {
       $( "#datepicker" ).datepicker();
     });
