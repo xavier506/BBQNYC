@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Map Test</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+      var map;
+      function initialize() {
+        var mapOptions = {
+          zoom: 10,
+          center: new google.maps.LatLng(40.740000, -73.940000)
+        };
+
+
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        setMarkers(map, parks);
+      }
+
+      var parks = [
+          ['Fort Greene Park', 40.690344, -73.973833],
+          ['Kaiser Park',40.579585, -73.99696],
+          ['Manhattan Beach',40.578158, -73.938921],
+          ['Prospect Park', 40.661614, -73.962246],
+          ['Fort Washington Park', 40.849477,-73.946641],
+          ['East River Park', 40.715327, -73.975452],
+          ['Inwood',40.867715,-73.921202]
+      ]
+
+      function setMarkers(map, locations) {
+  // Add markers to the map
+
+  // Marker sizes are expressed as a Size of X,Y
+  // where the origin of the image (0,0) is located
+  // in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker
+  // increase in the X direction to the right and in
+  // the Y direction down.
+  var image = {
+    url: 'images/sausage.png',
+    // This marker is 30 pixels wide by 30 pixels tall.
+    size: new google.maps.Size(30, 30),
+    // The origin for this image is 0,0.
+    origin: new google.maps.Point(0,0),
+    // The anchor for this image is the base of the fork at 0,30.
+    anchor: new google.maps.Point(15, 30)
+  };
+  // Shapes define the clickable region of the icon.
+  // The type defines an HTML &lt;area&gt; element 'poly' which
+  // traces out a polygon as a series of X,Y points. The final
+  // coordinate closes the poly by connecting to the first
+  // coordinate.
+
+
+  for (var i = 0; i < parks.length; i++) {
+    var park = parks[i];
+
+    var myLatLng = new google.maps.LatLng(park[1], park[2]);
+
+    var circle = new google.maps.Circle({
+      center: myLatLng,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      radius: 1000
+    });
+
+    
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: image,
+        shape: circle,
+        title: park[0],
+        zIndex: 5
+    });
+  }
+}
+
+
+
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
