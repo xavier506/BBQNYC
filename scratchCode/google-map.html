@@ -24,8 +24,6 @@
         ['Inwood', 40.867715,-73.921202]
       ];
 
-
-      
       function initialize() {
         
       var mapOptions = {
@@ -91,7 +89,7 @@
             title: park[0],
             zIndex: 1
         });
-        
+
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map,marker);
         });
