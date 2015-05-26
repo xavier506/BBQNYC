@@ -7,11 +7,9 @@ module Api
 
       @user.save
 
-      @ue = UserEvent.create({user_id: @user.id, event_id: params[:event_id]})
+      @user_event = UserEvent.create({user_id: @user.id, event_id: params[:event_id]})
 
-      # render json: @ue.to_json
-
-      render json: @ue
+      render json: @user_event
     end
 
   end
