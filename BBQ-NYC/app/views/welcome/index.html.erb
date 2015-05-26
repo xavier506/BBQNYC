@@ -1,0 +1,109 @@
+<div id="main"></div>
+
+<script type="text/template" class="template" data-id="location-modal-template">
+  <h2><%%= name %></h2>
+</script>
+
+<script type="text/template" class="template" data-id="create-event-view">
+
+  <form id="create-event">
+
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      <h4>Your Information</h4>
+    </div>
+    <div class="small-6 large-6 columns">
+      <div class="row collapse prefix-radius">
+        <div class="small-3 columns">
+          <span class="prefix">Name</span>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" name="host-name" placeholder="Name" required>
+        </div>
+      </div>
+    </div>
+    <div class="small-6 large-6 columns">
+      <div class="row collapse prefix-radius">
+        <div class="small-3 columns">
+          <span class="prefix">Email</span>
+        </div>
+        <div class="small-9 columns">
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+      </div>
+    </div>
+    <div class="small-12 large-12 columns">
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      <h4>Event Details</h4>
+    </div>
+    <div class="small-6 large-6 columns">
+      <div class="row collapse prefix-radius">
+        <div class="small-3 columns">
+          <span class="prefix">Event Name</span>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" name="event-name" placeholder="Event name" required>
+        </div>
+      </div>
+    </div>
+    <div class="small-6 large-6 columns">
+      <div class="row collapse prefix-radius">
+        <div class="small-3 columns">
+          <span class="prefix">Hashtag</span>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" name="hashtag" placeholder="#nothorns">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="small-6 large-6 columns">
+        <div class="row collapse prefix-radius">
+          <div class="small-3 columns">
+            <span class="prefix">Date</span>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="datepicker" placeholder="Click to select a date" required> 
+          </div>
+        </div>
+      </div>
+      <div class="small-6 large-6 columns">
+        <div class="row collapse prefix-radius">
+          <div class="small-3 columns">
+            <span class="prefix slider-time" style="border-right: 1px solid #ccc;">Time: 2:00 PM</span>
+          </div>
+          <div class="small-9 columns">
+            <div id="slider"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      <div class="row collapse prefix-radius">
+        <div class="small-2 columns">
+          <span class="prefix">Description</span>
+        </div> 
+        <div class="small-10 columns">
+          <input type="text" name="description" placeholder="Event description">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      <button type="submit">Create BBQ</button>
+    </div>
+  </div>
+
+  </form>
+</script>
