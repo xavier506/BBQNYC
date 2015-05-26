@@ -4,6 +4,93 @@
   <h2><%%= name %></h2>
 </script>
 
+<script type="text/template" class="template" data-id="map-view">
+  <div id="map-canvas" style="width: 80%; height: 80%">
+  </div>
+     <%% _.each(locations, function(location){ %>
+           <hr />
+           <%%= location.get('name') %>
+           <%%= location.get('latitude') %>
+           <%%= location.get('longitude') %>
+           <br/>
+     <%% }); %>
+<script type="text/javascript">
+  
+
+
+   var map;
+   var bounds = new google.maps.LatLngBounds();
+
+   function mapInitialize() {
+    map = new google.maps.Map(
+      document.getElementById("map-canvas"), {
+        center: new google.maps.LatLng(37.4419, -122.1419),
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+    // for (i = 0; i < locations.length; i++) {
+    //   var location = locations[i]
+
+
+    //   geocodeLatLong(locations, i);
+    // }
+  }
+
+
+
+  function geocodeLatLong(locations, i) {
+    var title = locations[i][0];
+    var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+
+    var icon = {
+        url: "http://hostelmango.cz/wp-content/uploads/2014/10/bbqo_icon.png",
+        scaledSize: new google.maps.Size(25, 25), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 12) // anchor
+      };
+
+      var circle = new google.maps.Circle({
+        center: myLatLng,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        radius: 1000
+      });
+
+      var marker = new google.maps.Marker({
+        icon: icon,
+        map: map,
+        position: myLatLng,
+        title: title,
+        shape: circle,
+        animation: google.maps.Animation.DROP
+      });
+
+      infoWindow(marker, map, title);
+      bounds.extend(marker.getPosition());
+      map.fitBounds(bounds);
+    };
+
+
+    function infoWindow(marker, map, title) {
+      google.maps.event.addListener(marker, 'click', function() {
+        var html = "<div><h3>" + title + "</h3><p></div></p></div>";
+        iw = new google.maps.InfoWindow({
+          content: html,
+          maxWidth: 350
+        });
+        iw.open(map, marker);
+      });
+    }
+  mapInitialize();
+</script>
+</script>
+
+
 <script type="text/template" class="template" data-id="create-event-view">
 
   <form id="create-event">
