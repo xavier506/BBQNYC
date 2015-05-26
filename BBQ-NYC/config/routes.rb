@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :locations, only: [:index, :show]
     resources :events, except: [:destroy] do
+      # GET /api/events/1/users
+      # POST /api/events/1/users
+      # add and create if needed
       resources :users, except: [:destroy, :update]
       resources :supplies
     end
