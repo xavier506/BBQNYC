@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>BBQNyc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+
+  <div class="row centered">
+    <ol class="steps" data-steps="4">
+      <li class="done">Pick a Spot</li><!--
+ --><li class="done">Select a Date</li><!--
+ --><li class="to-do">Invite your Friends</li><!--
+ --><li class="to-do">Grill</li>
+    </ol>
+    
+  </div>
 
 <%= yield %>
 
 </body>
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+
 </html>
