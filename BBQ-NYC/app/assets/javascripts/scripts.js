@@ -24,19 +24,29 @@ $(function() {
   });
 
   var LocationsCollectionView = Backbone.View.extend({
-    initialize: function(){
-      console.log("hello");
-
-
+    initialize: function(options){
+      console.log("location collection view initialized");
+      console.log(options.collection.models)
+      this.listenTo(this.collection, 'reset', this.render);
+      this.collection.fetch({reset: true});
+      
     },
-    render: function(){
-      var locations = new LocationsCollection();
-      locations.fetch({
-        success:function(locations){
-          var template = _.template($('script[data-id="map-view"]').html());
-          this.$("#main").html(template({locations: locations.models}));
-        }
+
+    template: _.template($('script[data-id="map-view"]').html()),
+
+    initializeMap: function() {
+      this.map = new google.maps.Map( this.$el.find('#map-canvas')[0], {
+        center: new google.maps.LatLng(40.740000, -73.940000),
+        zoom: 10,
+        // Snazzy Maps Style
+        styles: [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}]
       });
+    },
+
+    render: function(){
+      this.$el.html(this.template({locations: this.collection.models}));
+      this.initializeMap();
+
     }
   });
 
@@ -74,11 +84,11 @@ $(function() {
     },
     index: function() {
       console.log("index hit")
-      var locationsView = new LocationsCollectionView({
-        el: $("#main")
+      var locations = new LocationsCollection();
+      window.locationsView = new LocationsCollectionView({
+        el: $("#main"),
+        collection: locations
       });
-      locationsView.render();
-
     },
     createEvent: function() {
       console.log("create event hit")
