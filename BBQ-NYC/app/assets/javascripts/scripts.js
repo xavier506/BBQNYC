@@ -14,9 +14,32 @@ $(function() {
   //   $('#main').html(template(location))
   // });
 
-
   var Location = Backbone.Model.extend({
+    urlRoot: "/api/locations"
+  });
 
+  var LocationsCollection = Backbone.Collection.extend({
+    model: Location,
+    url: '/api/locations'
+  });
+
+  var LocationsCollectionView = Backbone.View.extend({
+    initialize: function() {
+      console.log("hello");
+
+
+    },
+    render: function() {
+      var locations = new LocationsCollection();
+      locations.fetch({
+        success: function(locations) {
+          var template = _.template($('script[data-id="map-view"]').html());
+          this.$("#main").html(template({
+            locations: locations.models
+          }));
+        }
+      });
+    }
   });
 
   var LocationView = Backbone.View.extend({
@@ -25,7 +48,6 @@ $(function() {
 
   var LocationModalView = Backbone.View.extend({
     template: $('script[data-id="location-modal-template"]').text(),
-
 
   });
 
@@ -83,10 +105,14 @@ $(function() {
       }
       var e = new Event(newEvent);
 
-      e.save(newEvent, { 
+      e.save(newEvent, {
         success: function() {
-          var u = new User({name: host_name, email: host_email}, {
-            event_id: e.get("id")});
+          var u = new User({
+            name: host_name,
+            email: host_email
+          }, {
+            event_id: e.get("id")
+          });
           console.log(e.get("id"))
           u.save();
         }
@@ -105,6 +131,11 @@ $(function() {
     },
     index: function() {
       console.log("index hit")
+      var locations = new LocationsCollection();
+      window.locationsView = new LocationsCollectionView({
+        el: $("#main"),
+        collection: locations
+      });
     },
     createFormView: function() {
       console.log("create event hit")
