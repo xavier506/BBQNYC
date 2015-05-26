@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+  </style>
+  <script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6PzRAoZk4B0bjhRAuf-w75EPha5Y9N4">
+</script>
+<script type="text/javascript">
+
+</script> 
+
+</head>
+<body>
+  <div id="map-canvas" style="width: 100%; height: 100%"></div>
+  <script type="text/javascript">
+   var locations = [
+   ['Fort Greene Park', 40.690344, -73.973833],
+   ['Kaiser Park', 40.579585, -73.99696],
+   ['Manhattan Beach', 40.578158, -73.938921],
+   ['Prospect Park', 40.661614, -73.962246],
+   ['Fort Washington Park', 40.849477,-73.946641],
+   ['East River Park', 40.715327, -73.975452],
+   ['Inwood', 40.867715,-73.921202]
+   ];
+
+   var map;
+   var bounds = new google.maps.LatLngBounds();
+
+   function initialize() {
+    map = new google.maps.Map(
+      document.getElementById("map-canvas"), {
+        center: new google.maps.LatLng(37.4419, -122.1419),
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+    for (i = 0; i < locations.length; i++) {
+      var location = locations[i]
+
+
+      geocodeLatLong(locations, i);
+    }
+  }
+
+  google.maps.event.addDomListener(window, "load", initialize);
+
+
+  function geocodeLatLong(locations, i) {
+    var title = locations[i][0];
+    var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+
+    var icon = {
+        url: "http://hostelmango.cz/wp-content/uploads/2014/10/bbqo_icon.png", // url
+        scaledSize: new google.maps.Size(25, 25), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+      };
+
+      var circle = new google.maps.Circle({
+        center: myLatLng,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        radius: 1000
+      });
+
+      var marker = new google.maps.Marker({
+        icon: icon,
+        map: map,
+        position: myLatLng,
+        title: title,
+        shape: circle,
+        animation: google.maps.Animation.DROP
+      });
+
+      infoWindow(marker, map, title);
+      bounds.extend(marker.getPosition());
+      map.fitBounds(bounds);
+    };
+
+
+    function infoWindow(marker, map, title) {
+      google.maps.event.addListener(marker, 'click', function() {
+        var html = "<div><h3>" + title + "</h3><p></div></p></div>";
+        iw = new google.maps.InfoWindow({
+          content: html,
+          maxWidth: 350
+        });
+        iw.open(map, marker);
+      });
+    }
+
+
+  </script>
+</body>
+</html>
