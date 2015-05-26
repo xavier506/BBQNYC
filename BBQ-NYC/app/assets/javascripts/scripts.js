@@ -2,18 +2,6 @@ $(function() {
 
   console.log("scripts.js linked")
 
-  // Testing with Ajax
-  // var template = _.template($('script[data-id="location-modal-template"]').text())
-
-  // $.ajax({
-  //   url: '/api/locations'
-  // }).done(function(locations) {
-  //   console.log("ajax call done")
-  //   var location = locations[0];
-  //   console.log(template)
-  //   $('#main').html(template(location))
-  // });
-
   var Location = Backbone.Model.extend({
     urlRoot: "/api/locations"
   });
@@ -25,73 +13,114 @@ $(function() {
 
   var LocationsCollectionView = Backbone.View.extend({
 
-    initialize: function(options){
-      console.log("location collection view initialized");
-      console.log(options.collection.models)
+    initialize: function(){
+      console.log("location collection view initialized");      
       this.listenTo(this.collection, 'reset', this.render);
       this.collection.fetch({reset: true});
     },
 
     template: _.template($('script[data-id="map-view"]').html()),
 
-    initializeMap: function() {
+    initializeMap: function(models) {
+
       this.map = new google.maps.Map( this.$el.find('#map-canvas')[0], {
         center: new google.maps.LatLng(40.740000, -73.940000),
         zoom: 10,
         // Snazzy Maps Style
         styles: [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}]
       });
+
+      var image = {
+        url: 'assets/sausage.png',
+      // This marker is 30 pixels wide by 30 pixels tall.
+      size: new google.maps.Size(30, 30),
+      // The origin for this image is 0,0.
+      origin: new google.maps.Point(0,0),
+      // The anchor for this image is the base of the fork at 15,30.
+      anchor: new google.maps.Point(15, 30)
+    };
+
+    function infoWindow(marker, map, title) {
+      google.maps.event.addListener(marker, 'click', function() {
+        var html = "<div><h3>" + title + "</h3><p></div></p></div>";
+        iw = new google.maps.InfoWindow({
+          content: html,
+          maxWidth: 350
+        });
+        iw.open(map, marker);
+      });
+    }
+
+    for (var i = 0; i < models.length; i++) {
+      var park = models[i].attributes;
+      var parkLatLng = new google.maps.LatLng(park.latitude, park.longitude);
+
+      var circle = new google.maps.Circle({
+        center: parkLatLng,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: this.map,
+        radius: 500
+      });
+
+      var marker = new google.maps.Marker({
+        position: parkLatLng,
+        map: this.map,
+        icon: image,
+        title: park.name,
+        zIndex: 10
+
+      });
+
+      infoWindow(marker, this.map, park.name);
+
+      } //  End for loop
+
     },
 
     render: function(){
-      this.$el.html(this.template({locations: this.collection.models}));
-      this.initializeMap();
+      this.$el.html(this.template());
+      this.initializeMap(this.collection.models);
     }
   });
 
-  var LocationView = Backbone.View.extend({
+var Event = Backbone.Model.extend({
+  urlRoot: 'api/events'
+});
 
-  });
+var User = Backbone.Model.extend({
+  initialize: function(attributes, options) {
+    this.event_id = options.event_id;
+  },
+  urlRoot: function() {
+    return '/api/events/' + this.event_id + '/users'
+  }
+});
 
-  var LocationModalView = Backbone.View.extend({
-    template: $('script[data-id="location-modal-template"]').text(),
+var EventCollection = Backbone.Collection.extend({
+  url: 'api/events',
+  model: Event
+});
 
-  });
-
-  var Event = Backbone.Model.extend({
-    urlRoot: 'api/events'
-  });
-
-  var User = Backbone.Model.extend({
-    initialize: function(attributes, options) {
-      this.event_id = options.event_id;
-    },
-    urlRoot: function() {
-      return '/api/events/' + this.event_id + '/users'
-    }
-  });
-
-  var EventCollection = Backbone.Collection.extend({
-    url: 'api/events',
-    model: Event
-  });
-
-  var EventFormView = Backbone.View.extend({
-    el: $('#main'),
-    template: $('script[data-id="create-event-view"]').text(),
-    events: {
-      'submit': 'createEvent'
-    },
-    render: function() {
-      this.$el.html(_.template(this.template))
-    },
-    createEvent: function(event) {
-      event.preventDefault();
-      var host_name = $('[name="host-name"]').val();
-      var host_email = $('[name="email"]').val();
-      var name = $('[name="event-name"]').val();
-      var date = $('#datepicker').val();
-      var description = $('[name="description"]').val();
+var EventFormView = Backbone.View.extend({
+  el: $('#main'),
+  template: $('script[data-id="create-event-view"]').text(),
+  events: {
+    'submit': 'createEvent'
+  },
+  render: function() {
+    this.$el.html(_.template(this.template))
+  },
+  createEvent: function(event) {
+    event.preventDefault();
+    var host_name = $('[name="host-name"]').val();
+    var host_email = $('[name="email"]').val();
+    var name = $('[name="event-name"]').val();
+    var date = $('#datepicker').val();
+    var description = $('[name="description"]').val();
 
       // Remove "Time: " label from time value
       var time = $('.slider-time').html();
@@ -131,77 +160,77 @@ $(function() {
     }
   });
 
-  var Router = Backbone.Router.extend({
-    routes: {
-      '': 'index',
-      'create': 'createFormView'
-    },
-    index: function() {
-      console.log("index hit")
-      var locations = new LocationsCollection();
-      window.locationsView = new LocationsCollectionView({
-        el: $("#main"),
-        collection: locations
-      });
-    },
-    createFormView: function() {
-      console.log("create event hit")
+var Router = Backbone.Router.extend({
+  routes: {
+    '': 'index',
+    'create': 'createFormView'
+  },
+  index: function() {
+    console.log("index hit")
+    var locations = new LocationsCollection();
+    window.locationsView = new LocationsCollectionView({
+      el: $("#main"),
+      collection: locations
+    });
+  },
+  createFormView: function() {
+    console.log("create event hit")
 
-      var eventModel = new Event();
+    var eventModel = new Event();
 
-      var eventCollection = new EventCollection();
-      var formView = new EventFormView({
+    var eventCollection = new EventCollection();
+    var formView = new EventFormView({
         // el: $("#main")
         // collection: eventCollection
       });
-      formView.render();
-    }
-  })
+    formView.render();
+  }
+})
 
-  var myRouter = new Router()
-  Backbone.history.start()
+var myRouter = new Router()
+Backbone.history.start()
 
+////jQuery UI stuff 
+$(function() {
+  $("#datepicker").datepicker();
+});
 
-  $(function() {
-    $("#datepicker").datepicker();
-  });
-
-  $(function() {
-    $("#slider").slider({
-      animate: "slow",
-      min: 480,
-      max: 1320,
-      step: 15,
-      value: 840,
-      slide: function(e, ui) {
-        var hours = Math.floor(ui.value / 60);
-        var minutes = ui.value - (hours * 60);
-        if (hours.length == 1) hours = '0' + hours;
-        if (minutes.length == 1) minutes = '0' + minutes;
-        if (minutes == 0) minutes = '00';
-        if (hours >= 12) {
-          if (hours == 12) {
-            hours = hours;
-            minutes = minutes + " PM";
-          } else {
-            hours = hours - 12;
-            minutes = minutes + " PM";
-          }
-        } else {
+$(function() {
+  $("#slider").slider({
+    animate: "slow",
+    min: 480,
+    max: 1320,
+    step: 15,
+    value: 840,
+    slide: function(e, ui) {
+      var hours = Math.floor(ui.value / 60);
+      var minutes = ui.value - (hours * 60);
+      if (hours.length == 1) hours = '0' + hours;
+      if (minutes.length == 1) minutes = '0' + minutes;
+      if (minutes == 0) minutes = '00';
+      if (hours >= 12) {
+        if (hours == 12) {
           hours = hours;
-          minutes = minutes + " AM";
+          minutes = minutes + " PM";
+        } else {
+          hours = hours - 12;
+          minutes = minutes + " PM";
         }
-        if (hours == 0) {
-          hours = 12;
-          minutes = minutes;
-        }
-        $('.slider-time').html('Time: ' + hours + ':' + minutes);
+      } else {
+        hours = hours;
+        minutes = minutes + " AM";
       }
-    });
+      if (hours == 0) {
+        hours = 12;
+        minutes = minutes;
+      }
+      $('.slider-time').html('Time: ' + hours + ':' + minutes);
+    }
   });
+});
 
-  $(function() {
-    $("#radio").buttonset();
-  });
+$(function() {
+  $("#radio").buttonset();
+});
 
 });
