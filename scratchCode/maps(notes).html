@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+  </style>
+  <script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6PzRAoZk4B0bjhRAuf-w75EPha5Y9N4">
+</script>
+<script type="text/javascript">
+    //Synchronous
+      // function initialize() {
+      //   // setting the options for a map(where to center/ zoom level)
+      //   var mapOptions = {
+      //     center: { lat: -34.397, lng: 150.644},
+      //     zoom: 8
+      //   };
+      //   //gets the div = map-canvas and gets mapOptions ready
+      //   var map = new google.maps.Map(document.getElementById('map-canvas'),
+      //       mapOptions);
+      // }
+      // //pins map to div when initialize is called.
+      // google.maps.event.addDomListener(window, 'load', initialize);
+
+      // Asynchronous
+      // function initialize() {
+      //   var mapOptions = {
+      //     zoom: 8,
+      //     center: new google.maps.LatLng(-34.397, 150.644)
+      //   };
+
+      //   var map = new google.maps.Map(document.getElementById('map-canvas'),
+      //     mapOptions);
+      // }
+
+      // function loadScript() {
+      //   var script = document.createElement('script');
+      //   script.type = 'text/javascript';
+      //   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
+      //   '&signed_in=true&callback=initialize';
+      //   document.body.appendChild(script);
+      // }
+
+      // // all he we do here is put the loadscript in a callback and then initialize it.
+      // window.onload = loadScript;
+
+      // This example creates a simple polygon representing the Bermuda Triangle.
+
+        //polyline snippet
+//       function initialize() {
+//         //sets main centering
+//         var mapOptions = {
+//           zoom: 5,
+//           center: new google.maps.LatLng(24.886436490787712, -70.2685546875),
+//           mapTypeId: google.maps.MapTypeId.TERRAIN
+//         };
+
+//         var bermudaTriangle;
+
+//         var map = new google.maps.Map(document.getElementById('map-canvas'),
+//           mapOptions);
+
+//   // Define the LatLng coordinates for the polygon's path.
+//   var triangleCoords = [
+//   new google.maps.LatLng(25.774252, -80.190262),
+//   new google.maps.LatLng(18.466465, -66.118292),
+//   new google.maps.LatLng(32.321384, -64.75737),
+//   new google.maps.LatLng(25.774252, -80.190262)
+//   ];
+
+//   // Construct the polygon.
+//   bermudaTriangle = new google.maps.Polygon({
+//     paths: triangleCoords,
+//     strokeColor: '#FF0000',
+//     strokeOpacity: 0.8,
+//     strokeWeight: 2,
+//     fillColor: '#FF0000',
+//     fillOpacity: 0.35
+//   });
+
+//   bermudaTriangle.setMap(map);
+// }
+
+// google.maps.event.addDomListener(window, 'load', initialize);
+
+
+</script> 
+
+</head>
+<body>
+  <div id="map-canvas" style="width: 100%; height: 100%"></div>
+  <script type="text/javascript">
+   var locations = [
+   ['Inwood Hill Park-Dyckman Fields', 'Dyckman Street & Hudson River, New York, NY', 'https://en.wikipedia.org/wiki/Inwood_Hill_Park'],
+   ['Morningside Park', 'Morningside Avenue & West 121st Street, New York, NY', 'http://morningsidepark.org/'],
+   ];
+
+   var geocoder;
+   var map;
+   var bounds = new google.maps.LatLngBounds();
+
+   function initialize() {
+    map = new google.maps.Map(
+      document.getElementById("map-canvas"), {
+        center: new google.maps.LatLng(37.4419, -122.1419),
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+    geocoder = new google.maps.Geocoder();
+
+    for (i = 0; i < locations.length; i++) {
+
+
+      geocodeAddress(locations, i);
+    }
+
+    bermudaTriangle.setMap(map);
+  }
+
+  google.maps.event.addDomListener(window, "load", initialize);
+
+  function geocodeAddress(locations, i) {
+    var title = locations[i][0];
+    var address = locations[i][1];
+    var url = locations[i][2];
+    geocoder.geocode({
+      'address': locations[i][1]
+    },
+
+    function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var icon = {
+    url: "http://hostelmango.cz/wp-content/uploads/2014/10/bbqo_icon.png", // url
+    scaledSize: new google.maps.Size(25, 25), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+  };
+
+  var marker = new google.maps.Marker({
+    icon: icon,
+    map: map,
+    position: results[0].geometry.location,
+    title: title,
+    animation: google.maps.Animation.DROP,
+    address: address,
+    url: url
+  })
+  infoWindow(marker, map, title, address, url);
+  bounds.extend(marker.getPosition());
+  map.fitBounds(bounds);
+} else {
+  alert("geocode of " + address + " failed:" + status);
+}
+});
+  }
+
+  function infoWindow(marker, map, title, address, url) {
+    google.maps.event.addListener(marker, 'click', function() {
+      var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a href='" + url + "'>View location</a></p></div>";
+      iw = new google.maps.InfoWindow({
+        content: html,
+        maxWidth: 350
+      });
+      iw.open(map, marker);
+    });
+  }
+
+  var bermudaTriangle;
+
+  // Define the LatLng coordinates for the polygon's path.
+  var triangleCoords = [
+  new google.maps.LatLng(25.774252, -80.190262),
+  new google.maps.LatLng(18.466465, -66.118292),
+  new google.maps.LatLng(32.321384, -64.75737),
+  new google.maps.LatLng(25.774252, -80.190262)
+  ];
+
+  // Construct the polygon.
+  bermudaTriangle = new google.maps.Polygon({
+    paths: triangleCoords,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
+
+</script>
+</body>
+</html>
