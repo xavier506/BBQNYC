@@ -1,21 +1,14 @@
 <div id="main"></div>
 
-<script type="text/template" class="template" data-id="location-modal-template">
-     var map = new Map({zoom: 8, maxZoom: 18, minZoom: 8});
-    map.initMap({coords: {latitude: -34.397, longitude: 150.644}});
-    var mapView = new MapView({model: map});
-    mapView.render();
-</script>
-
+<!-- Map Canvas Template --> 
 <script type="text/template" class="template" data-id="map-view">
-  <div id="map-canvas" style="width: 80%; height: 80%">
-  </div>
+    <div id="map-canvas"></div>
 </script>
 
-
+<!-- Create Event Page Template --> 
 <script type="text/template" class="template" data-id="create-event-view">
 
-  <form id="create-event">
+  <form id="create-event" location-id= <%%= location.id %> >
 
   <div class="row">
     <div class="small-12 large-12 columns">
