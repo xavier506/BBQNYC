@@ -236,17 +236,23 @@ $(function() {
   // Event Show View
   var EventShowView = Backbone.View.extend({
     initialize: function() {
+      console.log(this.model, this.user)
       this.render();
     },
     el: $('#main'),
     events: {
-      'click [data-action="invite"]': 'inviteFriend'
+      'click [data-action="invite"]': 'inviteFriend',
+      'click [data-action="going"]': 'rsvp'
     },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
-      console.log("event show render hit")
       this.$el.html(this.template(this.model.attributes))
+    },
+    rsvp: function() {
+      // user = this.model
+      // user.rsvp = true
+      // user.save()
     },
     inviteFriend: function(event) {
       event.preventDefault();
@@ -255,16 +261,17 @@ $(function() {
       // create a new user
 
       var friendName = null
-      var friend = new User({ email: friendEmail, name: friendName}, {event_id: this.model.get("id")});
-      
+      var friend = new User({
+        email: friendEmail,
+        name: friendName
+      }, {
+        event_id: this.model.get("id")
+      });
+
       friend.save();
-      // send user invitation 
-
+      // send user invitation
       // refesh guest list on this page 
-  
     }
-
-
   });
 
   // ------------------------- Router -------------------------
@@ -272,7 +279,7 @@ $(function() {
     routes: {
       '': 'index',
       'create?location_id=:id': 'createFormView',
-      'events/:id': 'showEventView'
+      'events/:id/users/:id': 'showEventView'
     },
     index: function() {
       var locations = new LocationsCollection();
@@ -292,14 +299,18 @@ $(function() {
       formView.render();
     },
     showEventView: function(event_id) {
-      var barbecue = new Event({id: event_id})
+      var barbecue = new Event({
+        id: event_id
+      })
       barbecue.fetch({
         success: function(data) {
-          var barbecueView = new EventShowView({model: data});
+          var barbecueView = new EventShowView({
+            model: data
+          });
         }
       });
     }
-  })
+  });
 
   var myRouter = new Router()
   Backbone.history.start()

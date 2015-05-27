@@ -14,5 +14,8 @@ module Api
       render json: @user_event
     end
 
+    def update
+    end
+
   end
 end

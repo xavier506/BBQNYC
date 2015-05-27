@@ -7,7 +7,8 @@
     <h2>Hey, you're new! Add your name</h2>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input name="_method" type="hidden" value="PUT">
-    <input type="text" data-attr="user-name" placeholder="Enter name here" required>
+    <input name="event_id" type="hidden" value="<%= @event.id %>">
+    <input type="text" name="name" placeholder="Enter name here" required>
     <button type="submit" data-action="add-user-name">Submit</button>
   </form>
 </div>
