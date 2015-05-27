@@ -163,6 +163,7 @@ $(function() {
           position: parkLatLng,
           map: this.map,
           icon: image,
+          animation: google.maps.Animation.DROP,
           title: park.get('name'),
           zIndex: 10
 
