@@ -228,18 +228,37 @@ $(function() {
     }
   });
 
-  // Create Event Show View
+  // Event Show View
   var EventShowView = Backbone.View.extend({
     initialize: function() {
       this.render();
     },
     el: $('#main'),
+    events: {
+      'click [data-action="invite"]': 'inviteFriend'
+    },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
       console.log("event show render hit")
       this.$el.html(this.template(this.model.attributes))
+    },
+    inviteFriend: function(event) {
+      event.preventDefault();
+      var friendEmail = $('input[data-attr="friend-email"]').val();
+
+      // create a new user
+
+      var friendName = null
+      var friend = new User({ email: friendEmail, name: friendName}, {event_id: this.model.get("id")});
+      
+      friend.save();
+      // send user invitation 
+
+      // refesh guest list on this page 
+  
     }
+
 
   });
 

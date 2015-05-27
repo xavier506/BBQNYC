@@ -3,7 +3,9 @@ module Api
 
     def create
       @user = User.find_or_initialize_by({email: params[:email]})
-      @user.name = params[:name]
+      if @user.name == nil
+        @user.name = params[:name]
+      end
 
       @user.save
 

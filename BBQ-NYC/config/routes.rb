@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
+  get '/name-yo-self' => 'users#name'
 
   namespace :api do
     resources :locations, only: [:index, :show]
@@ -11,12 +12,13 @@ Rails.application.routes.draw do
       # GET /api/events/1/users
       # POST /api/events/1/users
       # add and create if needed
-      resources :users, except: [:destroy, :update]
+      resources :users, except: [:destroy]
       resources :supplies
     end
   end
 
   resource :sessions, only: [:new, :create, :destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
