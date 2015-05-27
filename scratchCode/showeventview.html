@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BBQNyc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/assets/styles.css">
+
+</head>
+<body>
+
+  <div class="row centered">
+    <ol class="steps" data-steps="4">
+      <li class="done">Pick a Spot</li><!--
+ --><li class="done">Select a Date</li><!--
+ --><li class="done">Invite your Friends</li><!--
+ --><li class="to-do">Grill</li>
+    </ol>
+    
+  </div>
+
+<div id="main">
+
+  <form id="create-event" event-id="">
+
+    <div class="row">
+      <div class="small-12 large-12 columns">
+        <h4>Knope BBQ Event </h4>
+      </div>
+    </div>
+    <div class="row panel">
+      <div class="small-6 large-6 columns">
+      
+      <b>Date:</b> Saturday June 20 2015
+      <b>Time:</b> 4:20 PM
+    <br/>
+      <b>Location:</b> Prospect Park - East side of park , next to lake <br/>
+      <a href="#">get park address</a>
+    <br/>
+      <b>IG hashtag:</b> #KnopeisDope
+
+
+      </div>
+      <div class="small-6 large-6 columns">
+      <b>Event Description :</b> Bacon ipsum dolor amet pastrami jowl pork belly, spare ribs swine salami shankle brisket capicola ground round beef ribs meatball drumstick hamburger. Kielbasa shoulder pastrami, salami sirloin strip steak venison cupim drumstick spare ribs tail sausage short loin. Boudin shank corned beef porchetta. Pork short ribs ground round salami turkey filet mignon drumstick jowl tri-tip kevin. Tri-tip porchetta short loin biltong leberkas capicola ham hock bacon pork belly beef.
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 large-6 columns">
+        <h4>RSVP to this Event </h4>
+      </div>
+      <div class="small-6 large-6 columns">
+        <h4>Invite a friend</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 large-6 columns">
+         <div id="radio">
+            <input type="radio" id="radio1" name="radio" checked="checked"><label for="radio1">Im Going</label>
+           <input type="radio" id="radio2" name="radio"><label for="radio2">Im not Going</label>
+          </div>
+      </div>
+      <div class="small-6 large-6 columns">
+          <div class="small-8 large-8 columns">
+            <input type="email" placeholder="enter your friend's email address" />
+          </div>
+          <div class="small-4 large-4 columns">
+            <a class="button" href="#">Invite</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 large-12 column">
+      <h4>What To Bring?</h4>
+    <table width="100%">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Person</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hamburgers</td>
+      <td>Julia Becker</td>
+      <td><a class="button" href="">Remove</a></td>
+    </tr>
+    <tr>
+      <td>Sausages</td>
+      <td>Xavier Fernandez</td>
+      <td><a class="button" href="">Remove</a></td>
+    </tr>
+    <tr>
+      <td>Beer</td>
+      <td>Adam Abdelaziz</td>
+      <td><a class="button" href="">Remove</a></td>
+    </tr>
+    <tr>
+      <td contenteditable="true"><em>Click to enter your contribution here</em></td>
+      <td>Your Name Here</td>
+      <td><a class="button" href="">Remove</a></td>
+    </tr>
+
+  </tbody>
+</table>
+<button>Add Item</button>
+</div>
+</div>
+
+  </div> <!--Close main div -->
+</body>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+
+  <script type="text/javascript">
+      $(function() {
+      $( "#radio" ).buttonset();
+    });
+  </script>
+
+</html>

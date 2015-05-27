@@ -9,5 +9,10 @@ module Api
       render json: event
     end
 
+    def show
+      event = Event.find(params[:id])
+      render json: event, include: :location
+    end
+
   end
 end
