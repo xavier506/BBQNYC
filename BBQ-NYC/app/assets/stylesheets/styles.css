@@ -4,6 +4,11 @@
   padding: 0px
 }
 
+#iw-content {
+ line-height: 1.35;
+ scrolling=no
+}
+
 .centered {
   text-align: center;
   margin-bottom: 20px;

@@ -132,13 +132,17 @@ $(function() {
       function infoWindow(marker, map, park) {
 
         google.maps.event.addListener(marker, 'click', function() {
-          var html = "<div><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><button>Grill Here</button></div>";
+          var html = "<div id=iw-content><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><button>Grill Here</button></div>";
           iw = new google.maps.InfoWindow({
             content: html,
-            maxWidth: 350
+            maxWidth: 500
           });
           iw.open(map, marker);
         });
+
+        google.maps.event.addListener(map, 'click', function() {
+          iw.close()
+        })
       }
 
       this.collection.each(function(park) {
@@ -152,13 +156,14 @@ $(function() {
           fillColor: '#FF0000',
           fillOpacity: 0.35,
           map: this.map,
-          radius: 500
+          radius: 100
         });
 
         var marker = new google.maps.Marker({
           position: parkLatLng,
           map: this.map,
           icon: image,
+          animation: google.maps.Animation.DROP,
           title: park.get('name'),
           zIndex: 10
 
