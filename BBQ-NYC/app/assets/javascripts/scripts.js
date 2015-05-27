@@ -44,7 +44,7 @@ $(function() {
 
     template: _.template($('script[data-id="map-view"]').html()),
 
-    initializeMap: function(models) {
+    initializeMap: function() {
 
       this.map = new google.maps.Map(this.$el.find('#map-canvas')[0], {
         center: new google.maps.LatLng(40.740000, -73.940000),
@@ -141,9 +141,8 @@ $(function() {
         });
       }
 
-      for (var i = 0; i < models.length; i++) {
-        var park = models[i].attributes;
-        var parkLatLng = new google.maps.LatLng(park.latitude, park.longitude);
+      this.collection.each(function(park) {
+        var parkLatLng = new google.maps.LatLng(park.get('latitude'), park.get('longitude'));
 
         var circle = new google.maps.Circle({
           center: parkLatLng,
@@ -160,20 +159,19 @@ $(function() {
           position: parkLatLng,
           map: this.map,
           icon: image,
-          title: park.name,
+          title: park.get('name'),
           zIndex: 10
 
         });
 
-        infoWindow(marker, this.map, park);
-
-      } //  End for loop
+        infoWindow(marker, this.map, park.toJSON());
+      }.bind(this));
 
     },
 
     render: function() {
       this.$el.html(this.template());
-      this.initializeMap(this.collection.models);
+      this.initializeMap();
     }
   });
 
@@ -234,7 +232,8 @@ $(function() {
   var Router = Backbone.Router.extend({
     routes: {
       '': 'index',
-      'create': 'createFormView'
+      'create?location_id=:id': 'createFormView',
+      'event/:id': 'showEventView'
     },
     index: function() {
       console.log("index hit")
@@ -244,15 +243,18 @@ $(function() {
         collection: locations
       });
     },
-    createFormView: function() {
+    createFormView: function(id) {
+      console.log(id);
       console.log("create event hit")
 
       var eventModel = new Event();
 
       var eventCollection = new EventCollection();
-      var formView = new EventFormView({
-      });
+      var formView = new EventFormView({});
       formView.render();
+    },
+    showEventView: function() {
+      
     }
   })
 
