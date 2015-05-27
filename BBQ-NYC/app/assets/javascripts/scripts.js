@@ -40,9 +40,10 @@ $(function() {
       anchor: new google.maps.Point(15, 30)
     };
 
-    function infoWindow(marker, map, title) {
+    function infoWindow(marker, map, park) {
+
       google.maps.event.addListener(marker, 'click', function() {
-        var html = "<div><h3>" + title + "</h3><p></div></p></div>";
+        var html = "<div><img src='"+park.photo_url+"' /><h3>" + park.name + "</h3><p>location: "+ park.location +"<br/><em>address: "+ park.address +"</em></p><p>description: "+ park.description +"</p><p>hours:"+ park.hours +"</p><p>rating: "+ park.rating +"</p><p><a href='"+ park.website + "' target='_blank'>visit park website</a></p><button>Grill Here</button></div>";
         iw = new google.maps.InfoWindow({
           content: html,
           maxWidth: 350
@@ -75,7 +76,7 @@ $(function() {
 
       });
 
-      infoWindow(marker, this.map, park.name);
+      infoWindow(marker, this.map, park);
 
       } //  End for loop
 
