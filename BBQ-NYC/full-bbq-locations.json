@@ -122,21 +122,21 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/X045/images/featured/14379.jpg",
-  "description" : "As the largest park in the south Bronx, St. Mary's Park gets plenty of love from those living in the area. And who could blame them? This park offers an oasis of fun and relaxation in a busy area. The lawns are particularly popular with picnickers, and families bring baskets full of food to grill on warm summer days. Runners circle the park's well-tended track, and those looking to 'get their sport on' spend time slamming handballs on the handball court, hitting and pitching in the baseball diamond, and shooting hoops on the basketball court. The always-active rec center offers plenty of programs for members of all ages, including not just education programs and sports, but plenty of dance classes, and its indoor pool is perfect for lap swimmers and new learners alike."
+  "description" : "As the largest park in the south Bronx, St. Mary's Park gets plenty of love from those living in the area. And who could blame them? This park offers an oasis of fun and relaxation in a busy area. The lawns are particularly popular with picnickers, and families bring baskets full of food to grill on warm summer days. Runners circle the park's well-tended track, and those looking to 'get their sport on' spend time slamming handballs on the handball court, hitting and pitching in the baseball diamond, and shooting hoops on the basketball court."
 
   },
   {
   "property_id": "X092",
   "name": "Van Cortlandt Park ",
   "location": "Allen Shandler Recreation Area: Jerome Avenue, South of 233rd Street",
-  "address": "Van Cortlandt Park, Broadway and Vancortlandt Park S, Bronx, NY 10462, USA",
+  "address": "Van Cortlandt Park, Bronx, NY 10462, USA",
   "latitude": 40.892484, 
   "longitude": -73.876538,
   "website" : "http://www.nycgovparks.org/parks/VanCortlandtPark",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/X092/images/featured/9865.jpg",
-  "description" : "Van Cortlandt Park — more than a thousand acres atop the ridges and valleys of the northwest Bronx — is New York City's third largest park. Playing fields and playgrounds are scattered about the park's edges, surrounding a richly forested heartland fed by Tibbets Brook. The park is home to the country's first public golf course, the oldest house in the Bronx, and the borough's largest freshwater lake.<br/><br/>From the quiet green shade of its oak forests to the crisp white mantle of cricket players atop the Parade Ground, the park boasts a past rich in culture, well-versed in history, and blessed with the intrinsic beauty of nature."
+  "description" : "Van Cortlandt Park — more than a thousand acres atop the ridges and valleys of the northwest Bronx — is New York City's third largest park. Playing fields and playgrounds are scattered about the park's edges, surrounding a richly forested heartland fed by Tibbets Brook."
 
   },
   {
@@ -204,7 +204,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/B129/images/featured/10251.jpg",
-  "description" : "Kaiser Park, with its northwestern corner nestled on Coney Island, is the perfect combination of beach fun, beauty and functionality. Want the perks of a beach? Head to the pier, toss a line, and see what fish are biting today. Or, if it's just the beauty you want, stare at the sun setting behind the distant Verrazano-Narrows Bridge or go to the Gravesend Bay side of the park for a glimpse of magnificent migrating birds. After all that relaxing, lace up your sneakers and jog a lap around the state-of-the-art track reopened in 2006. If team sports are more your style, meet some friends at the soccer, football, or baseball fields, all of which have also been recently renovated. Finally, end your day with a barbeque at one of the 20 grills within the park. While digesting your meal, plan your next trip to the park. Will it be tennis, handball, or playground fun the next time around?"
+  "description" : "Kaiser Park, with its northwestern corner nestled on Coney Island, is the perfect combination of beach fun, beauty and functionality. Want the perks of a beach? Head to the pier, toss a line, and see what fish are biting today. Or, if it's just the beauty you want, stare at the sun setting behind the distant Verrazano-Narrows Bridge or go to the Gravesend Bay side of the park for a glimpse of magnificent migrating birds. After all that relaxing, lace up your sneakers and jog a lap around the state-of-the-art track reopened in 2006. If team sports are more your style, meet some friends at the soccer, football, or baseball fields, all of which have also been recently renovated. Finally, end your day with a barbeque at one of the 20 grills within the park. While digesting your meal, plan your next trip to the park."
 
   },
   {
@@ -344,7 +344,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/M144/images/featured/9520.jpg",
-  "description" : ""
+  "description" : "How many New Yorkers can brag about owning 57 acres of waterside property? Parks can. Rather than settle for a strip of land offering impressive views of the Manhattan and Brooklyn bridges, Parks filled the area with vibrant activity--building an amphitheater, bike paths, playgrounds, sports fields and courts, gardens, children's water play areas, and walking paths"
 
   },
   {
@@ -358,7 +358,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/M028/images/featured/21473.jpg",
-  "description" : "Known to history buffs as the namesake of a Revolutionary War structure built for the rebels and seized by the British; known to children as the site of Manhattan's only lighthouse, the Little Red Lighthouse, the protagonist in a popular children's book; known to aesthetes as an ideal lookout spot onto the Hudson River and the Palisades, Fort Washington Park is a valued part of the Washington Heights community.<br/><br/>Located along the Hudson River, Fort Washington Park also offers spectacular views of the new Jersey Palisades and the George Washington Bridge along its 160-acre ribbon of dramatic cliffs, meadows, and wooded areas. "
+  "description" : "Known to history buffs as the namesake of a Revolutionary War structure built for the rebels and seized by the British; known to children as the site of Manhattan's only lighthouse, the Little Red Lighthouse, the protagonist in a popular children's book; known to aesthetes as an ideal lookout spot onto the Hudson River and the Palisades, Fort Washington Park is a valued part of the Washington Heights community."
 
   },
   {
@@ -372,7 +372,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/M037/images/featured/9669.jpg",
-  "description" : "Named after the High Bridge, the city's oldest standing bridge, Highbridge Park was assembled piecemeal between 1867 and the 1960s, with the bulk being acquired through condemnation from 1895 to 1901. Although widely known for its important landmarks, the Highbridge tower and formerly mentioned bridge, the park offers natural beauty and recreational fun that serve as reason enough to visit. The park boasts the city’s first mountain biking course and a world class skate park. Open vistas and an unusual geologic makeup greet visitors who stroll the pathways north and south through the park, while pedestrians and waterside cyclists on the greenways cherish its magnificent cliffs and large rock outcroppings. The Highbridge Recreation Center and Pool have kept active New Yorkers busy since 1936, and several playgrounds and ballfields have been constructed throughout the park over the last century."
+  "description" : "Named after the High Bridge, the city's oldest standing bridge, Highbridge Park was assembled piecemeal between 1867 and the 1960s, with the bulk being acquired through condemnation from 1895 to 1901. Although widely known for its important landmarks, the Highbridge tower and formerly mentioned bridge, the park offers natural beauty and recreational fun that serve as reason enough to visit."
 
   },
   {
@@ -386,7 +386,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/M042/images/featured/9727.jpg",
-  "description" : "There's old New York, and then there's old New York. Inwood Hill Park is a living piece of old New York. Evidence of its prehistoric roots exists as dramatic caves, valleys, and ridges left as the result of shifting glaciers. Evidence of its uninhabited state afterward remains as its forest and salt marsh (the last natural one in Manhattan), and evidence of its use by Native Americans in the 17th century continues to be discovered. Much has occurred on the land that now composes Inwood Hill Park since the arrival of European colonists in the 17th and 18th centuries, but luckily, most of the park was largely untouched by the wars and development that took place. The park continues to honor and cultivate its environment. A hiking trail and the Hudson River Bike Trail offer visitors chances to appreciate large stretches of the park's natural beauty in an environmentally friendly manner. Also, the park is one of the best places to spot a bald eagle in the City, after the Urban Park Rangers launched a bald eagle release project in the park in 2002. The park also manages to present modern conveniences like athletic fields, playgrounds, dog runs, and a barbecue area, in harmony with its natural assets."
+  "description" : "There's old New York, and then there's old New York. Inwood Hill Park is a living piece of old New York. Evidence of its prehistoric roots exists as dramatic caves, valleys, and ridges left as the result of shifting glaciers."
 
   },
   {
@@ -414,7 +414,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/M104/images/featured/9778.jpg",
-  "description" : "One of the city’s main recreation hubs, the Park has undergone a remarkable transformation in recent years, in large part through the vision and support of Mayor Michael Bloomberg, in keeping with his historic citywide commitment to the preservation of open spaces and waterfront restoration and development. In 1992, the Randall’s Island Park Alliance (RIPA) (formerly the Randall's Island Sports Foundation) was established to revive the park, and began working alongside the City of New York and the Department of Parks & Recreation to develop sports and recreational facilities, maintain the Park and restore its natural environment. In 1999, RIPA, the City and the local community worked together to generate a Management, Restoration & Development Plan for the Park, and in the years since this plan has been largely realized. The transformation began in 2005 with Icahn Stadium, an IAAF-certified track & field facility, which was followed by a renovated golf center, nine acres of restored wetlands, a 20-court tennis center, more than 60 playing fields and miles of waterfront bike and pedestrian pathways. Many of these facilities have utilized parkland reclaimed from institutional use and/or restored from a degraded, inaccessible state. RIPA works to coordinate local stewardship of the refurbished Park through volunteer efforts, and hosts free summer and year-round sports and environmental programs to make the most of the new facilities, restored natural areas, waterfront pathways and green, open fields. In the meantime, the Park has hosted major events including Lollapalooza, the Vans Warped Tour, Cirque du Soleil and the Electric Zoo; in spring 2012, the Island will be home to the first North American installation of the international Frieze Art Fair."
+  "description" : "One of the city’s main recreation hubs, the Park has undergone a remarkable transformation in recent years, in large part through the vision and support of Mayor Michael Bloomberg, in keeping with his historic citywide commitment to the preservation of open spaces and waterfront restoration and development."
 
   },
   {
@@ -498,7 +498,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program. A low–cost outdoor education and adventure program, Alley Pond Park Adventure teaches participants how to canoe, use a compass, fish, and enjoy a natural setting without leaving NYC."
+  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts."
 
   },
   {
@@ -511,7 +511,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program. A low–cost outdoor education and adventure program, Alley Pond Park Adventure teaches participants how to canoe, use a compass, fish, and enjoy a natural setting without leaving NYC."
+  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program."
 
   },
   {
@@ -524,7 +524,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program. A low–cost outdoor education and adventure program, Alley Pond Park Adventure teaches participants how to canoe, use a compass, fish, and enjoy a natural setting without leaving NYC."
+  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts."
 
   },
   {
@@ -566,7 +566,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q099/images/featured/1321.jpg",
-  "description" : "The site of two twentieth century World's Fairs attended by millions of people, Flushing Meadows Corona Park continues to draw and delight visitors. As the largest park in Queens, it offers plenty of space for whatever your recreational desires may be--baseball, soccer, tennis, cricket, et cetera. Lots more too, including a stunning recreation complex, a zoo, an art museum, a botanical garden, a science museum, and a baseball stadium. Explore one of the park's six playgrounds, take a stroll along the Flushing Bay Promenade, or launch your model airplane. Flushing Meadows Corona Park has room for all your active pursuits!"
+  "description" : "The site of two twentieth century World's Fairs attended by millions of people, Flushing Meadows Corona Park continues to draw and delight visitors. As the largest park in Queens, it offers plenty of space for whatever your recreational desires may be--baseball, soccer, tennis, cricket, et cetera."
 
   },
   {
@@ -594,7 +594,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q099/images/featured/1321.jpg",
-  "description" : "The site of two twentieth century World's Fairs attended by millions of people, Flushing Meadows Corona Park continues to draw and delight visitors. As the largest park in Queens, it offers plenty of space for whatever your recreational desires may be--baseball, soccer, tennis, cricket, et cetera. Lots more too, including a stunning recreation complex, a zoo, an art museum, a botanical garden, a science museum, and a baseball stadium. Explore one of the park's six playgrounds, take a stroll along the Flushing Bay Promenade, or launch your model airplane. Flushing Meadows Corona Park has room for all your active pursuits!"
+  "description" : "The site of two twentieth century World's Fairs attended by millions of people, Flushing Meadows Corona Park continues to draw and delight visitors. As the largest park in Queens, it offers plenty of space for whatever your recreational desires may be--baseball, soccer, tennis, cricket, et cetera."
 
   },
   {
@@ -608,7 +608,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q015/featureditem/DSC_0631.jpg",
-  "description" : " A mix of natural treasures and man-made prizes, Forest Park is 500+ acres of options for visitors. With a 'knob and kettle' terrain (a series of small hills) and 165 acres of trees, the park is an agrarian delight. Park goers interested in exploring Forest Park’s natural settings firsthand often travel to its eastern portion, which abounds in hiking trails and bridle paths. Horses can be hired from a private stable in order to cover more ground from a higher perspective. Heading west, Forest Park transforms into an athlete’s playground. Softball, baseball, tennis, bocce, handball, and golf are a few of your options when you wander through this portion of the park. The 110-acre, par 67 golf course was modeled after Scottish links and maintains its reputation as one of the City’s most challenging golf courses. Music fans know that the western portion of Forest Park includes non-sports-related highlights as well. The George Seuffert, Sr. Bandshell, which can accommodate 2,800 people, hosts free concerts throughout the warm season. Attend an Urban Park Rangers event for an introduction to Forest Park’s geology, forestry, or animals, or grab a blanket or baseball mitt and head to the park to explore at your own pace!"
+  "description" : " A mix of natural treasures and man-made prizes, Forest Park is 500+ acres of options for visitors. With a 'knob and kettle' terrain (a series of small hills) and 165 acres of trees, the park is an agrarian delight."
 
   },
   {
@@ -622,7 +622,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q020/featureditem/highland-park-phase-1-feat.jpg",
-  "description" : "Conveniently located on a high plateau that straddles Queens and Brooklyn, Highland Park offers stunning views of Ridgewood Reservoir, the Rockaways, the Atlantic Ocean, and nearby cemeteries. Acquired in pieces over time, the park took its present shape between 1906 and 1908, quickly became a popular spot among residents of both boroughs, and continues to play an important role in the community. Children's farm gardens act as hands-on classrooms, barbecue areas serve as meeting grounds for mass celebrations, and numerous tennis courts, baseball fields, handball courts, and basketball courts provide New Yorkers with safe, clean spots for athletic recreation.  The Ridgewood Reservoir located on the Brooklyn/Queens border in Highland Park, served as a backup water supply for the two boroughs until 1989. After the reservoir’s closure, a landscape of woods and wetlands developed within the three basins. The pathway around the basins is heavily used by Brooklyn and Queens residents for walking and exercise. The reservoir boasts being home to more than 151 species of birds."
+  "description" : "Conveniently located on a high plateau that straddles Queens and Brooklyn, Highland Park offers stunning views of Ridgewood Reservoir, the Rockaways, the Atlantic Ocean, and nearby cemeteries."
 
   },
   {
@@ -636,7 +636,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q162GROUP/images/featured/21634.jpg",
-  "description" : "From surfers to swimmers to the Ramones, everyone wants to 'hitch a ride to Rockaway Beach.' Rockaway Beach is a year-round resource for residents all along the Rockaway peninsula, and it comes alive each summer from Memorial Day weekend through Labor Day weekend with millions of visitors. In the wake of Superstorm Sandy, which struck New York City in October 2012, Rockaway Beach has also become a testament to New York's resilience, and a model for sustainable rebuilding."
+  "description" : "From surfers to swimmers to the Ramones, everyone wants to 'hitch a ride to Rockaway Beach.' Rockaway Beach is a year-round resource for residents all along the Rockaway peninsula, and it comes alive each summer from Memorial Day weekend through Labor Day weekend with millions of visitors."
 
   },
   {
@@ -650,7 +650,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : "This park shares its name with the much larger Springfield Park to its south, a site named after the surrounding neighborhood of Springfield Gardens. An enticing settlement area because of its richness in natural resources, Springfield Gardens remained largely agricultural until the Long Island Rail Road extended to this community, stimulating rapid residential development. Today the park provides recreational facilities for both students in J.H.S. 231 and local residents."
+  "description" : "This park shares its name with the much larger Springfield Park to its south, a site named after the surrounding neighborhood of Springfield Gardens. An enticing settlement area because of its richness in natural resources, Springfield Gardens remained largely agricultural until the Long Island Rail Road extended to this community, stimulating rapid residential development."
 
   },
   {
@@ -664,7 +664,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/R005/images/featured/18067.jpg",
-  "description" : "A protected Forever Wild site because of its valuable ecological assets, Clove Lakes Park has a rich natural history and a few remnants of the past that remain and continue to thrill visitors. Chief among them are the park's lakes and ponds, outcroppings of serpentine rocks, and Staten Island's largest living things, a three hundred year-old tulip tree.Besides strolling down trails and paddling on its bodies of water to appreciate its beauty, visitors can also experience the park as a more modern recreation zone. Several baseball diamonds, a soccer field, basketball court, playgrounds, and football field dot the park's landscape. Then, of course, there's the Staten Island War Memorial Ice Skating Rink, an outdoor rink located in what could be called the 'active' part of the park, close to its other fields and courts."
+  "description" : "A protected Forever Wild site because of its valuable ecological assets, Clove Lakes Park has a rich natural history and a few remnants of the past that remain and continue to thrill visitors. Chief among them are the park's lakes and ponds, outcroppings of serpentine rocks, and Staten Island's largest living things, a three hundred year-old tulip tree."
 
   },
   {
@@ -678,7 +678,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/R030/images/featured/18261.jpg",
-  "description" : "This unique patch of greenery in Staten Island is many things to many people. With protected space for wildlife alongside its variety of recreational facilities, Willowbrook is one of Staten Island's most popular Greenbelt parks.<br/><br/>With its sylvan expanses, Willowbrook offers a wonderful chance to escape into a more peaceful setting. Hikers explore its woods, while many species of birds take advantage of the five-acre lake to nest and eat and do other avian activities."
+  "description" : "This unique patch of greenery in Staten Island is many things to many people."
 
   },
   {

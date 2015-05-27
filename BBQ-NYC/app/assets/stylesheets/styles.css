@@ -4,8 +4,9 @@
   padding: 0px
 }
 
-#info-window{
+#iw-content {
  line-height: 1.35;
+ scrolling=no
 }
 
 .centered {
