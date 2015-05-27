@@ -36,7 +36,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
-    for (i = 0; i < locations.length; i++) {
+    for (i = 0; i < locations.length; i) {
       var location = locations[i]
 
 
@@ -55,7 +55,7 @@
         url: "http://hostelmango.cz/wp-content/uploads/2014/10/bbqo_icon.png", // url
         scaledSize: new google.maps.Size(25, 25), // scaled size
         origin: new google.maps.Point(0,0), // origin
-        anchor: new google.maps.Point(0, 12) // anchor
+        anchor: new google.maps.Point(0, 0) // anchor
       };
 
       var circle = new google.maps.Circle({
@@ -86,7 +86,7 @@
 
     function infoWindow(marker, map, title) {
       google.maps.event.addListener(marker, 'click', function() {
-        var html = "<div><h3>" + title + "</h3><p></div></p></div>";
+        var html = "<div><h3>"   + title +  "</h3><p></div></p></div>";
         iw = new google.maps.InfoWindow({
           content: html,
           maxWidth: 350
@@ -98,4 +98,4 @@
 
   </script>
 </body>
-</html>
+</html> 
