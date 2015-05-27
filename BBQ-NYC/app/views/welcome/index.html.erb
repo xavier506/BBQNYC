@@ -113,21 +113,22 @@
 <script type="text/template" class="template" data-id="event-show-view">
     <div class="row">
       <div class="small-12 large-12 columns">
-        <h4><%%= name %></h4>
+        <h2><%%= name %></h2>
       </div>
     </div>
     <div class="row panel">
       <div class="small-6 large-6 columns">
         <b>Date:</b> <%%= date %>
+        <br/>
         <b>Time:</b> <%%= time %>
         <br/>
-        <b>Location:</b> <%%= location %> <br/>
-        <a href="<%%= location_id.website %>">see park website</a>
+        <b>Location:</b> <%%= location.name %> <br/> <%%= location.location %><br/>
+        <a href="<%%= location.website %>" target="_blank">Visit park website</a>
         <br/>
-        <b>IG hashtag:</b> #<%%= hashtag %>
       </div>
       <div class="small-6 large-6 columns">
-        <b>Event Description :</b><%%= description %>
+        <b>Event Description :</b><%%= description %><br/>
+        <b>Instagram Hashtag:</b> #<%%= hashtag %>
       </div>
     </div>
     <div class="row">

@@ -230,11 +230,15 @@ $(function() {
 
   // Create Event Show View
   var EventShowView = Backbone.View.extend({
-    model: Event,
+    initialize: function() {
+      this.render();
+    },
     el: $('#main'),
-    template: $('script[data-id="event-show-view"]').text(),
+    // 'precompile' templates...confusing underscore way of doing this
+    template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
-      this.$el.html(_.template(this.template, this.model))
+      console.log("event show render hit")
+      this.$el.html(this.template(this.model.attributes))
     }
 
   });
@@ -247,7 +251,6 @@ $(function() {
       'events/:id': 'showEventView'
     },
     index: function() {
-      console.log("index hit")
       var locations = new LocationsCollection();
       window.locationsView = new LocationsCollectionView({
         el: $("#main"),
@@ -265,13 +268,12 @@ $(function() {
       formView.render();
     },
     showEventView: function(event_id) {
-      console.log("show event hit")
-      console.log(event_id)
-
       var barbecue = new Event({id: event_id})
-      barbecue.fetch();
-      //console.log(barbecue)
-      var barbecueView = new eventShowView({model: barbecue}); 
+      barbecue.fetch({
+        success: function(data) {
+          var barbecueView = new EventShowView({model: data});
+        }
+      });
     }
   })
 
