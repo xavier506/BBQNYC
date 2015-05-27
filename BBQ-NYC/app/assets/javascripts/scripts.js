@@ -44,7 +44,7 @@ $(function() {
 
     template: _.template($('script[data-id="map-view"]').html()),
 
-    initializeMap: function(models) {
+    initializeMap: function() {
 
       this.map = new google.maps.Map(this.$el.find('#map-canvas')[0], {
         center: new google.maps.LatLng(40.740000, -73.940000),
@@ -130,23 +130,19 @@ $(function() {
       };
 
       function infoWindow(marker, map, park) {
-        var html = "<div id=info-window><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><button>Grill Here</button></div>";
-         iw = new google.maps.InfoWindow({
+
+        google.maps.event.addListener(marker, 'click', function() {
+          var html = "<div><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><button>Grill Here</button></div>";
+          iw = new google.maps.InfoWindow({
             content: html,
             maxWidth: 350
           });
-
-        google.maps.event.addListener(marker, 'click', function() {
           iw.open(map, marker);
         });
-        google.maps.event.addListener(map, 'click', function() {
-          iw.close()
-        })
       }
 
-      for (var i = 0; i < models.length; i++) {
-        var park = models[i].attributes;
-        var parkLatLng = new google.maps.LatLng(park.latitude, park.longitude);
+      this.collection.each(function(park) {
+        var parkLatLng = new google.maps.LatLng(park.get('latitude'), park.get('longitude'));
 
         var circle = new google.maps.Circle({
           center: parkLatLng,
@@ -163,20 +159,19 @@ $(function() {
           position: parkLatLng,
           map: this.map,
           icon: image,
-          title: park.name,
+          title: park.get('name'),
           zIndex: 10
 
         });
 
-        infoWindow(marker, this.map, park);
-
-      } //  End for loop
+        infoWindow(marker, this.map, park.toJSON());
+      }.bind(this));
 
     },
 
     render: function() {
       this.$el.html(this.template());
-      this.initializeMap(this.collection.models);
+      this.initializeMap();
     }
   });
 
@@ -233,29 +228,52 @@ $(function() {
     }
   });
 
+  // Create Event Show View
+  var EventShowView = Backbone.View.extend({
+    initialize: function() {
+      this.render();
+    },
+    el: $('#main'),
+    // 'precompile' templates...confusing underscore way of doing this
+    template: _.template($('script[data-id="event-show-view"]').text()),
+    render: function() {
+      console.log("event show render hit")
+      this.$el.html(this.template(this.model.attributes))
+    }
+
+  });
+
   // ------------------------- Router -------------------------
   var Router = Backbone.Router.extend({
     routes: {
       '': 'index',
-      'create': 'createFormView'
+      'create?location_id=:id': 'createFormView',
+      'events/:id': 'showEventView'
     },
     index: function() {
-      console.log("index hit")
       var locations = new LocationsCollection();
       window.locationsView = new LocationsCollectionView({
         el: $("#main"),
         collection: locations
       });
     },
-    createFormView: function() {
+    createFormView: function(id) {
+      console.log(id);
       console.log("create event hit")
 
       var eventModel = new Event();
 
       var eventCollection = new EventCollection();
-      var formView = new EventFormView({
-      });
+      var formView = new EventFormView({});
       formView.render();
+    },
+    showEventView: function(event_id) {
+      var barbecue = new Event({id: event_id})
+      barbecue.fetch({
+        success: function(data) {
+          var barbecueView = new EventShowView({model: data});
+        }
+      });
     }
   })
 

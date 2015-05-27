@@ -4,8 +4,8 @@
   "name": "Crotona Park",
   "location": "Crotona Park East & Charlotte Street (Indian Lake)",
   "address": "Crotona Park, Bronx, NY 10460, USA",
-  "latitude": 40.839086,
-  "longitude": -73.894064,
+  "latitude": 40.838626,
+  "longitude": -73.893416,
   "website" : "http://www.nycgovparks.org/parks/crotona-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -18,8 +18,8 @@
   "name": "Ferry Point Park",
   "location": "North end of park",
   "address": "Ferry Point Park, Bronx, NY 10465, USA",
-  "latitude": 40.811655,
-  "longitude": -73.831893,
+  "latitude": 40.819713,
+  "longitude": -73.830764,
   "website" : "http://www.nycgovparks.org/parks/ferry-point-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -32,8 +32,8 @@
   "name": "Ferry Point Park",
   "location": "South end of park",
   "address": "Ferry Point Park, Bronx, NY 10465, USA",
-  "latitude": 40.811655,
-  "longitude": -73.831893,
+  "latitude": 40.811626,
+  "longitude": -73.832052,
   "website" : "http://www.nycgovparks.org/parks/ferry-point-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -45,9 +45,9 @@
   "property_id": "X039",
   "name": "Pelham Bay Park",
   "location": "Orchard Beach Park North Lawn",
-  "address": "Pelham Bay Park, Bronc County Line and Middletown Rd, New York, NY 10464",
-  "latitude": 40.8615,
-  "longitude": -73.7972,
+  "address": "Pelham Bay Park, Bronx County Line and Middletown Rd, New York, NY 10464",
+  "latitude": 40.864742,
+  "longitude": -73.797672,
   "website" : "http://www.pelhambaypark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -59,9 +59,9 @@
   "property_id": "X039",
   "name": "Pelham Bay Park",
   "location": "Orchard Beach Park South Lawn",
-  "address": "Pelham Bay Park, Bronc County Line and Middletown Rd, New York, NY 10464",
-  "latitude": 40.8615,
-  "longitude": -73.7972,
+  "address": "Pelham Bay Park, Bronx County Line and Middletown Rd, New York, NY 10464",
+  "latitude": 40.856883,
+  "longitude": -73.799978,
   "website" : "http://www.pelhambaypark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -73,9 +73,9 @@
   "property_id": "X039",
   "name": "Pelham Bay Park",
   "location": "North Picnic Area - Bruckner Boulevard & Wilkinson Avenue",
-  "address": "Pelham Bay Park, Bronc County Line and Middletown Rd, New York, NY 10464",
-  "latitude": 40.8615,
-  "longitude": -73.7972,
+  "address": "Pelham Bay Park, Bronx County Line and Middletown Rd, New York, NY 10464",
+  "latitude": 40.851579,
+  "longitude": -73.825936,
   "website" : "http://www.pelhambaypark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -94,7 +94,7 @@
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "Tree-shaded, riverside park with a grassy picnic area & a fenced playground with views of the falls."
 
   },
   {
@@ -102,13 +102,13 @@
   "name": "River Park ",
   "location": "Along Boston Road entrance side",
   "address" : "River Park, Boston Road, Bronx, NY 10460, USA",
-  "latitude": 40.843445,
+  "latitude": 40.843473,
   "longitude": -73.877282,
-  "website" : "http://www.nycgovparks.org/",
+  "website" : "http://www.nycgovparks.org/parks/bronx-river-parkway",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/photo_gallery/full_size/10359.jpg",
+  "description" : "Tree-shaded, riverside park with a grassy picnic area & a fenced playground with views of the falls."
 
   },
   {
@@ -116,13 +116,13 @@
   "name": "St. Mary's Park",
   "location": "146th Street & St. Ann's Avenue",
   "address": "Saint Mary's Park, 450 Saint Ann's Avenue, Bronx, NY 10455, USA",
-  "latitude": 40.810988,
-  "longitude": -73.911732,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.810933, 
+  "longitude": -73.911694,
+  "website" : "http://www.nycgovparks.org/st-marys-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/X045/images/featured/14379.jpg",
+  "description" : "As the largest park in the south Bronx, St. Mary's Park gets plenty of love from those living in the area. And who could blame them? This park offers an oasis of fun and relaxation in a busy area. The lawns are particularly popular with picnickers, and families bring baskets full of food to grill on warm summer days. Runners circle the park's well-tended track, and those looking to 'get their sport on' spend time slamming handballs on the handball court, hitting and pitching in the baseball diamond, and shooting hoops on the basketball court. The always-active rec center offers plenty of programs for members of all ages, including not just education programs and sports, but plenty of dance classes, and its indoor pool is perfect for lap swimmers and new learners alike."
 
   },
   {
@@ -130,8 +130,8 @@
   "name": "Van Cortlandt Park ",
   "location": "Allen Shandler Recreation Area: Jerome Avenue, South of 233rd Street",
   "address": "Van Cortlandt Park, Broadway and Vancortlandt Park S, Bronx, NY 10462, USA",
-  "latitude": 40.897935,
-  "longitude": -73.885951,
+  "latitude": 40.892484, 
+  "longitude": -73.876538,
   "website" : "http://www.nycgovparks.org/parks/VanCortlandtPark",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -143,8 +143,8 @@
   "property_id": "X092",
   "name": "Van Cortlandt Park ",
   "location": "In front of the pool, Broadway and 242 Street",
-  "latitude": 40.897935,
-  "longitude": -73.885951,
+  "latitude": 40.889978, 
+  "longitude": -73.896937,
   "website" : "http://www.nycgovparks.org/parks/VanCortlandtPark",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -156,8 +156,8 @@
   "name": "Coffey Park",
   "location": "At Verona and Richards streets",
   "address": "Coffey Park, 85 Richards Street, Brooklyn, NY 11231, USA",
-  "latitude": 40.677433,
-  "longitude": -74.008345,
+  "latitude": 40.677971, 
+  "longitude": -74.009109,
   "website" : "http://www.nycgovparks.org/parks/coffey-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -170,8 +170,8 @@
   "name": "Coffey Park",
   "location": "At Verona and Dwight streets",
   "address": "Coffey Park, 85 Richards Street, Brooklyn, NY 11231, USA",
-  "latitude": 40.677433,
-  "longitude": -74.008345,
+  "latitude": 40.677206, 
+  "longitude": -74.008261,
   "website" : "http://www.nycgovparks.org/parks/coffey-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -184,8 +184,8 @@
   "name": "Fort Greene Park",
   "location": "Along Myrtle Avenue between North Portland Avenue and St. Edwards Street",
   "address": "Fort Greene Park, Myrtle Avenue, Brooklyn, NY 11201, USA",
-  "latitude": 40.690344,
-  "longitude": -73.973833,
+  "latitude": 40.693030, 
+  "longitude": -73.976115,
   "website" : "http://www.nycgovparks.org/parks/fort-greene-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -198,13 +198,13 @@
   "name": "Kaiser Park",
   "location": "At West 33rd Street",
   "address": "Kaiser Park, Neptune Avenue, Brooklyn, NY 11224, USA",
-  "latitude": 40.579585,
-  "longitude": -73.99696,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.580864, 
+  "longitude": -73.999471,
+  "website" : "http://www.nycgovparks.org/parks/leon-s-kaiser-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/B129/images/featured/10251.jpg",
+  "description" : "Kaiser Park, with its northwestern corner nestled on Coney Island, is the perfect combination of beach fun, beauty and functionality. Want the perks of a beach? Head to the pier, toss a line, and see what fish are biting today. Or, if it's just the beauty you want, stare at the sun setting behind the distant Verrazano-Narrows Bridge or go to the Gravesend Bay side of the park for a glimpse of magnificent migrating birds. After all that relaxing, lace up your sneakers and jog a lap around the state-of-the-art track reopened in 2006. If team sports are more your style, meet some friends at the soccer, football, or baseball fields, all of which have also been recently renovated. Finally, end your day with a barbeque at one of the 20 grills within the park. While digesting your meal, plan your next trip to the park. Will it be tennis, handball, or playground fun the next time around?"
 
   },
   {
@@ -212,13 +212,13 @@
   "name": "Manhattan Beach ",
   "location": "Northeast of Promenade, median adjacent to parking lot (no amplified sound permitted)",
   "address": "Manhattan Beach, Brooklyn, NY, USA",
-  "latitude": 40.578158,
-  "longitude": -73.938921,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.577624,
+  "longitude": -73.940309,
+  "website" : "http://www.nycgovparks.org/parks/manhattan-beach-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/B251/images/featured/19111.jpg",
+  "description" : "This beach on Brooklyn's southern tip is a popular summertime destination for people from all over New York City. As the weather heats up, families pack picnic baskets and come out to barbeque, loll on the sand, and swim in the waves. Bookended by playgrounds, and with two large baseball diamonds on its eastern border, as well as tennis, volleyball, basketball, and handball, this park has plenty of room for all types of active outdoor fun."
 
   },
   {
@@ -226,13 +226,13 @@
   "name": "Manhattan Beach ",
   "location": "Oriental Boulevard & Hastings Street (no amplified sound permitted)",
   "address": "Manhattan Beach, Brooklyn, NY, USA",
-  "latitude": 40.578158,
-  "longitude": -73.938921,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.577494, 
+  "longitude": -73.944300,
+  "website" : "http://www.nycgovparks.org/parks/manhattan-beach-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/B251/images/featured/19111.jpg",
+  "description" : "This beach on Brooklyn's southern tip is a popular summertime destination for people from all over New York City. As the weather heats up, families pack picnic baskets and come out to barbeque, loll on the sand, and swim in the waves. Bookended by playgrounds, and with two large baseball diamonds on its eastern border, as well as tennis, volleyball, basketball, and handball, this park has plenty of room for all types of active outdoor fun."
 
   },
   {
@@ -240,12 +240,12 @@
   "name": "Prospect Park",
   "location": "Both sides of Bandshell",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.663234, 
+  "longitude": -73.976304,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/B073/images/featured/10315.jpg",
+  "photo_url" : "http://www.nycgovparks.org/parks/B073/images/featured/17765.jpg",
   "description" : "Designed and constructed over a thirty-year period (1865-1895) by Frederick Law Olmsted and Calvert Vaux, the masterminds behind Central Park, Prospect Park has blossomed into a premiere destination for Brooklyn visitors and residents alike."
 
   },
@@ -254,8 +254,8 @@
   "name": "Prospect Park",
   "location": "North area of Long Meadow",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.661892, 
+  "longitude": -73.974277,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -268,8 +268,8 @@
   "name": "Prospect Park",
   "location": "Area near Prospect Park South West and 10th Avenue",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.660191, 
+  "longitude": -73.976967,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -282,8 +282,8 @@
   "name": "Prospect Park",
   "location": "Area near Vanderbuilt Street and Prospect Park South West",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.654689, 
+  "longitude": -73.972589,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -296,8 +296,8 @@
   "name": "Prospect Park",
   "location": "Area north of Picnic House",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.666764, 
+  "longitude": -73.971300,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -310,8 +310,8 @@
   "name": "Prospect Park",
   "location": "Grecian Shelter area",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.653106, 
+  "longitude": -73.967497,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -324,8 +324,8 @@
   "name": "Prospect Park",
   "location": "Area south of Wollman Rink",
   "address": "Prospect Park, Brooklyn, NY 11225, USA",
-  "latitude": 40.661614,
-  "longitude": -73.962246,
+  "latitude": 40.657750, 
+  "longitude": -73.965412,
   "website" : "http://www.prospectpark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -338,12 +338,12 @@
   "name": "East River Park*",
   "location": "Along FDR Drive at East 10th Street<br>*<a href=\"http://nycgovparks.org/sub_permits_and_applications/planning_an_event.html\">Special events permit</a> required",
   "address": "East River Park, East River Promenade, New York, NY 10019, USA",
-  "latitude": 40.715327,
-  "longitude": -73.975452,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.718283, 
+  "longitude": -73.974057,
+  "website" : "http://www.nycgovparks.org/parks/east-river-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
+  "photo_url" : "http://www.nycgovparks.org/parks/M144/images/featured/9520.jpg",
   "description" : ""
 
   },
@@ -366,13 +366,13 @@
   "name": "Highbridge Park",
   "location": "West 177th Street and Amsterdam Avenue",
   "address": "Highbridge Park, Edgecombe Avenue, New York, NY 10039, USA",
-  "latitude": 40.843104,
-  "longitude": -73.93291,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.845467, 
+  "longitude": -73.932120,
+  "website" : "http://www.nycgovparks.org/parks/highbridge-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M037/images/featured/9669.jpg",
+  "description" : "Named after the High Bridge, the city's oldest standing bridge, Highbridge Park was assembled piecemeal between 1867 and the 1960s, with the bulk being acquired through condemnation from 1895 to 1901. Although widely known for its important landmarks, the Highbridge tower and formerly mentioned bridge, the park offers natural beauty and recreational fun that serve as reason enough to visit. The park boasts the city’s first mountain biking course and a world class skate park. Open vistas and an unusual geologic makeup greet visitors who stroll the pathways north and south through the park, while pedestrians and waterside cyclists on the greenways cherish its magnificent cliffs and large rock outcroppings. The Highbridge Recreation Center and Pool have kept active New Yorkers busy since 1936, and several playgrounds and ballfields have been constructed throughout the park over the last century."
 
   },
   {
@@ -380,13 +380,13 @@
   "name": "Inwood Hill Park-Dyckman Fields",
   "location": "Dyckman Street & Hudson River",
   "address": "Inwood, New York, NY, USA",
-  "latitude": 40.867715,
-  "longitude": -73.921202,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.868666, 
+  "longitude": -73.930602,
+  "website" : "http://www.nycgovparks.org/parks/inwood-hill-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M042/images/featured/9727.jpg",
+  "description" : "There's old New York, and then there's old New York. Inwood Hill Park is a living piece of old New York. Evidence of its prehistoric roots exists as dramatic caves, valleys, and ridges left as the result of shifting glaciers. Evidence of its uninhabited state afterward remains as its forest and salt marsh (the last natural one in Manhattan), and evidence of its use by Native Americans in the 17th century continues to be discovered. Much has occurred on the land that now composes Inwood Hill Park since the arrival of European colonists in the 17th and 18th centuries, but luckily, most of the park was largely untouched by the wars and development that took place. The park continues to honor and cultivate its environment. A hiking trail and the Hudson River Bike Trail offer visitors chances to appreciate large stretches of the park's natural beauty in an environmentally friendly manner. Also, the park is one of the best places to spot a bald eagle in the City, after the Urban Park Rangers launched a bald eagle release project in the park in 2002. The park also manages to present modern conveniences like athletic fields, playgrounds, dog runs, and a barbecue area, in harmony with its natural assets."
 
   },
   {
@@ -394,13 +394,13 @@
   "name": "Morningside Park",
   "location": "Morningside Avenue & West 121st Street",
   "address": "Morningside Park, New York, NY 10026, USA",
-  "latitude": 40.805093,
-  "longitude": -73.959127,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.808941, 
+  "longitude": -73.956101,
+  "website" : "http://www.nycgovparks.org/parks/morningside-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M056/featureditem/seligman.jpeg",
+  "description" : "A narrow strip that stretches 13 blocks through the neighborhoods of Harlem and Morningside Heights, Morningside Park blends dramatic landscaping with the pleasures of a community park. Built on a steep incline, multiple playgrounds nestle at the bottom of its cliff-like hillside, and visitors pause along its heights to take in a unique view. Winding paths bordered with flowers and trees lead to a cascading waterfall, across from which local teams play on its baseball fields. Parents bring their children to play in its playgrounds and learn in its after-school program, and on Saturdays local farmers sell their goods in an outdoor market."
 
   },
   {
@@ -408,13 +408,13 @@
   "name": "Randall's Island",
   "location": "At the far end of Sunken Meadow ballfields",
   "address": "Wards Island, New York, NY, USA",
-  "latitude":  40.793227,
-  "longitude": -73.921286,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude":  40.792690, 
+  "longitude": -73.915651,
+  "website" : "http://www.nycgovparks.org/parks/randalls-island",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M104/images/featured/9778.jpg",
+  "description" : "One of the city’s main recreation hubs, the Park has undergone a remarkable transformation in recent years, in large part through the vision and support of Mayor Michael Bloomberg, in keeping with his historic citywide commitment to the preservation of open spaces and waterfront restoration and development. In 1992, the Randall’s Island Park Alliance (RIPA) (formerly the Randall's Island Sports Foundation) was established to revive the park, and began working alongside the City of New York and the Department of Parks & Recreation to develop sports and recreational facilities, maintain the Park and restore its natural environment. In 1999, RIPA, the City and the local community worked together to generate a Management, Restoration & Development Plan for the Park, and in the years since this plan has been largely realized. The transformation began in 2005 with Icahn Stadium, an IAAF-certified track & field facility, which was followed by a renovated golf center, nine acres of restored wetlands, a 20-court tennis center, more than 60 playing fields and miles of waterfront bike and pedestrian pathways. Many of these facilities have utilized parkland reclaimed from institutional use and/or restored from a degraded, inaccessible state. RIPA works to coordinate local stewardship of the refurbished Park through volunteer efforts, and hosts free summer and year-round sports and environmental programs to make the most of the new facilities, restored natural areas, waterfront pathways and green, open fields. In the meantime, the Park has hosted major events including Lollapalooza, the Vans Warped Tour, Cirque du Soleil and the Electric Zoo; in spring 2012, the Island will be home to the first North American installation of the international Frieze Art Fair."
 
   },
   {
@@ -422,13 +422,13 @@
   "name": "Riverside Park",
   "location": "West 145th Street on the Hudson River",
   "address": "Riverside Park, New York, NY, USA",
-  "latitude": 40.801234,
-  "longitude": -73.97231,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.827330, 
+  "longitude": -73.954629,
+  "website" : "http://www.nycgovparks.org/parks/northernriversidepark",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M072/images/featured/9575.jpg",
+  "description" : "Stretching four miles from 72nd to 158th streets along the Hudson River, Riverside Park is regarded by many as Manhattan's most spectacular waterfront park. Since 1875, the landscapes of Frederick Law Olmsted have offered escape from the city and opportunities for people of all incomes to relax, play, and socialize in tranquil settings."
 
   },
   {
@@ -436,12 +436,12 @@
   "name": "St. Nicholas Park",
   "location": "St. Nicholas Terrace at West 128th Street",
   "address": "St. Nicholas Park, Saint Nicholas Terrace, New York, NY 10027, USA",
-  "latitude": 40.817918,
-  "longitude": -73.949537,
+  "latitude": 40.812940, 
+  "longitude": -73.951314,
   "website" : "http://www.nycgovparks.org/parks/st-nicholas-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/M077/images/featured/21787.jpg",
+  "photo_url" : "http://www.nycgovparks.org/parks/M077/images/featured/21784.jpg",
   "description" : "This spacious park is named for St. Nicholas of Myra. It is located at the intersection of St. Nicholas Avenue, 127th Street, St. Nicholas Terrace and 141st Street, bordering the Manhattan neighborhoods of Hamilton Heights, Manhattanville, and Harlem."
 
   },
@@ -450,13 +450,13 @@
   "name": "St. Nicholas Park",
   "location": "St. Nicholas Avenue between West 133rd and 135th streets",
   "address": "St. Nicholas Park, Saint Nicholas Terrace, New York, NY 10027, USA",
-  "latitude": 40.817918,
-  "longitude": -73.949537,
+  "latitude": 40.817110, 
+  "longitude": -73.948852,
   "website" : "http://www.nycgovparks.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M077/images/featured/21784.jpg",
+  "description" : "This spacious park is named for St. Nicholas of Myra. It is located at the intersection of St. Nicholas Avenue, 127th Street, St. Nicholas Terrace and 141st Street, bordering the Manhattan neighborhoods of Hamilton Heights, Manhattanville, and Harlem."
 
   },
   {
@@ -464,12 +464,12 @@
   "name": "Thomas Jefferson Park",
   "location": "First Avenue between East 111th and 114th streets",
   "address": "Thomas Jefferson Park, 1st Avenue, New York, NY 10029, USA",
-  "latitude": 40.793366,
-  "longitude": -73.935247,
+  "latitude": 40.803206, 
+  "longitude": -73.959623,
   "website" : "http://www.nycgovparks.org/parks/thomas-jefferson-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/M047/images/featured/9521.jpg",
+  "photo_url" : "http://www.nycgovparks.org/parks/M047/images/featured/14123.jpg",
   "description" : "Although only a few blocks long, this friendly neighborhood park is packed to the brim with things to do.  On busy days, runners circle the track while groups of friends shoot hoops, hit balls, and take advantage of the baseball and handball courts. The small recreation center on its grounds offers a fitness room, exercise equipment, and classes for those looking for a good workout."
 
   },
@@ -478,13 +478,13 @@
   "name": "Wards Island",
   "location": "East River & Hell Gate (near the children's playground)",
   "address": "Wards Island, New York, NY, USA",
-  "latitude": 40.793227,
-  "longitude": -73.921286,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.788617, 
+  "longitude": -73.926391,
+  "website" : "http://www.nycgovparks.org/parks/wards-island-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/M107/images/featured/20057.jpg",
+  "description" : "Wards Island Park is located on Wards Island, a 255-acre landmass lying in the northern end of the East River, between Manhattan and Queens."
 
   },
   {
@@ -492,39 +492,39 @@
   "name": "Alley Pond Park",
   "location": "Winchester Boulevard & Grand Central Parkway",
   "address": "Alley Pond Park, Little Neck Bay, Queens, NY 11364",
-  "latitude": 40.747316,
-  "longitude": -73.742955,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.741536, 
+  "longitude": -73.734167,
+  "website" : "http://www.nycgovparks.org/parks/alley-pond-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program. A low–cost outdoor education and adventure program, Alley Pond Park Adventure teaches participants how to canoe, use a compass, fish, and enjoy a natural setting without leaving NYC."
 
   },
   {
   "property_id": "Q001",
   "name": "Alley Pond Park",
   "location": "Alley Athletic Field: Union Turnpike & Winchester Boulevard",
-  "latitude": 40.747316,
-  "longitude": -73.742955,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.740033, 
+  "longitude": -73.735323,
+  "website" : "http://www.nycgovparks.org/parks/alley-pond-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program. A low–cost outdoor education and adventure program, Alley Pond Park Adventure teaches participants how to canoe, use a compass, fish, and enjoy a natural setting without leaving NYC."
 
   },
   {
   "property_id": "Q001",
   "name": "Alley Pond Park",
   "location": "Alley Springfield: Springfield Boulevard and 76 Avenue",
-  "latitude": 40.747316,
-  "longitude": -73.742955,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.747312, 
+  "longitude": -73.742924,
+  "website" : "http://www.nycgovparks.org/parks/alley-pond-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "Alley Pond Park offers glimpses into New York’s geologic past, its colonial history, and its current conservation efforts. Because of its glacier-formed moraine, the park has numerous unique natural features, like its freshwater and saltwater wetlands, tidal flats, meadows, and forests, which create a diverse ecosystem and support abundant bird life. The park is also home to New York City's first public high ropes adventure course (the largest in the Northeast), part of the Urban Park Rangers' larger Alley Pond Park Adventure program. A low–cost outdoor education and adventure program, Alley Pond Park Adventure teaches participants how to canoe, use a compass, fish, and enjoy a natural setting without leaving NYC."
 
   },
   {
@@ -532,13 +532,13 @@
   "name": "Bayswater Park",
   "location": "Beach Channel Drive and B32 Street",
   "address": "Bayswater Park, Bay 32nd Street, Far Rockaway, NY 11691, USA",
-  "latitude": 40.599056,
-  "longitude": -73.769114,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.598837, 
+  "longitude": -73.766628,
+  "website" : "http://www.nycgovparks.org/parks/bayswater-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q007/images/featured/18539.jpg",
+  "description" : "This park is named, in part, for Jules Michaelis (1893-1968), a long-time caterer and civic leader in the Rockaways. For 16 years he served as president of the Wavecrest Civic Association, and was also a member of the Rockaway Chamber of Commerce and the Borough President’s Committee on Aviation. He was also a leader in the efforts to develop Bayswater Park. The community felt a need for more recreation space and better facilities, and Michaelis was particularly interested in creating a quality baseball diamond so that students from Far Rockaway High School would have a place to play."
 
   },
   {
@@ -546,13 +546,13 @@
   "name": "Brookville Park",
   "location": "Brookville Boulevard & South Conduit Avenue",
   "address": "Brookville Park, Rosedale, NY 11422, USA",
-  "latitude": 40.659979,
-  "longitude": -73.745579,
+  "latitude": 40.664884, 
+  "longitude": -73.740810,
   "website" : "http://www.nycgovparks.org/parks/brookville-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18710.jpg",
+  "description" : "Park with basketball, tennis, bocce & baseball areas, a playground, picnic tables & hike/bike paths."
 
   },
   {
@@ -560,13 +560,13 @@
   "name": "Corona Park",
   "location": "Jewel Avenue and Van Wyck Expressway",
   "address": "Flushing Meadows Corona Park, Queens, NY, USA",
-  "latitude": 40.739714,
-  "longitude": -73.840785,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.727109, 
+  "longitude": -73.833775,
+  "website" : "http://www.nycgovparks.org/parks/flushing-meadows-corona-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q099/images/featured/1321.jpg",
+  "description" : "The site of two twentieth century World's Fairs attended by millions of people, Flushing Meadows Corona Park continues to draw and delight visitors. As the largest park in Queens, it offers plenty of space for whatever your recreational desires may be--baseball, soccer, tennis, cricket, et cetera. Lots more too, including a stunning recreation complex, a zoo, an art museum, a botanical garden, a science museum, and a baseball stadium. Explore one of the park's six playgrounds, take a stroll along the Flushing Bay Promenade, or launch your model airplane. Flushing Meadows Corona Park has room for all your active pursuits!"
 
   },
   {
@@ -574,13 +574,13 @@
   "name": "Cunningham Park",
   "location": "Union Turnpike and Francis Lewis Boulevard",
   "address": "Cunningham Park, Grand Central Parkway, Oakland Gardens, NY 11364, USA",
-  "latitude": 40.736763,
-  "longitude": -73.768378,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.732836, 
+  "longitude": -73.769020,
+  "website" : "http://www.nycgovparks.org/parks/cunningham-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q021/featureditem/DA050506_0.jpg3476326-2.jpg",
+  "description" : "Culture, sports, nature... and fun! All of these things abound in Cunningham Park, one of the largest parks in Queens.  Assembled between 1928 and 1944 and named Cunningham Park in 1934, the space has developed into headquarters for countless athletic leagues, animals, playmates, and barbecue enthusiasts.  "
 
   },
   {
@@ -588,13 +588,13 @@
   "name": "Flushing Meadows Corona Park",
   "location": "Off Lake West and off Lake East",
   "address": "Flushing Meadows Corona Park, Queens, NY, USA",
-  "latitude": 40.739714,
-  "longitude": -73.840785,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.733368, 
+  "longitude": -73.838321,
+  "website" : "http://www.nycgovparks.org/parks/flushing-meadows-corona-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q099/images/featured/1321.jpg",
+  "description" : "The site of two twentieth century World's Fairs attended by millions of people, Flushing Meadows Corona Park continues to draw and delight visitors. As the largest park in Queens, it offers plenty of space for whatever your recreational desires may be--baseball, soccer, tennis, cricket, et cetera. Lots more too, including a stunning recreation complex, a zoo, an art museum, a botanical garden, a science museum, and a baseball stadium. Explore one of the park's six playgrounds, take a stroll along the Flushing Bay Promenade, or launch your model airplane. Flushing Meadows Corona Park has room for all your active pursuits!"
 
   },
   {
@@ -602,13 +602,13 @@
   "name": "Forest Park",
   "location": "Woodhaven Boulevard and Forest Park Drive",
   "address": "Forest Park, Queens, NY, USA",
-  "latitude": 40.700023,
-  "longitude": -73.856609,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.699944,
+  "longitude": -73.854839,
+  "website" : "http://www.nycgovparks.org/parks/forest-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q015/featureditem/DSC_0631.jpg",
+  "description" : " A mix of natural treasures and man-made prizes, Forest Park is 500+ acres of options for visitors. With a 'knob and kettle' terrain (a series of small hills) and 165 acres of trees, the park is an agrarian delight. Park goers interested in exploring Forest Park’s natural settings firsthand often travel to its eastern portion, which abounds in hiking trails and bridle paths. Horses can be hired from a private stable in order to cover more ground from a higher perspective. Heading west, Forest Park transforms into an athlete’s playground. Softball, baseball, tennis, bocce, handball, and golf are a few of your options when you wander through this portion of the park. The 110-acre, par 67 golf course was modeled after Scottish links and maintains its reputation as one of the City’s most challenging golf courses. Music fans know that the western portion of Forest Park includes non-sports-related highlights as well. The George Seuffert, Sr. Bandshell, which can accommodate 2,800 people, hosts free concerts throughout the warm season. Attend an Urban Park Rangers event for an introduction to Forest Park’s geology, forestry, or animals, or grab a blanket or baseball mitt and head to the park to explore at your own pace!"
 
   },
   {
@@ -616,13 +616,13 @@
   "name": "Highland Park",
   "location": "Upper Highland: Highland Blvd. and Vermont Place",
   "address": "Highland Park, NY 14094, USA",
-  "latitude": 40.6923307,
-  "longitude": -73.8892808,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.688358, 
+  "longitude": -73.887662,
+  "website" : "http://www.nycgovparks.org/parks/highland-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q020/featureditem/highland-park-phase-1-feat.jpg",
+  "description" : "Conveniently located on a high plateau that straddles Queens and Brooklyn, Highland Park offers stunning views of Ridgewood Reservoir, the Rockaways, the Atlantic Ocean, and nearby cemeteries. Acquired in pieces over time, the park took its present shape between 1906 and 1908, quickly became a popular spot among residents of both boroughs, and continues to play an important role in the community. Children's farm gardens act as hands-on classrooms, barbecue areas serve as meeting grounds for mass celebrations, and numerous tennis courts, baseball fields, handball courts, and basketball courts provide New Yorkers with safe, clean spots for athletic recreation.  The Ridgewood Reservoir located on the Brooklyn/Queens border in Highland Park, served as a backup water supply for the two boroughs until 1989. After the reservoir’s closure, a landscape of woods and wetlands developed within the three basins. The pathway around the basins is heavily used by Brooklyn and Queens residents for walking and exercise. The reservoir boasts being home to more than 151 species of birds."
 
   },
   {
@@ -630,13 +630,13 @@
   "name": "O'Donohue Park",
   "location": "Seagirt Blvd. between Beach 15 and Beach 17 Streets",
   "address": "O'Donohue Park, Far Rockaway, NY 11691, USA",
-  "latitude": 40.594629,
-  "longitude": -73.750176,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.594833, 
+  "longitude": -73.749648,
+  "website" : "http://www.nycgovparks.org/parks/rockaway-beach-and-boardwalk/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/Q162GROUP/images/featured/21634.jpg",
+  "description" : "From surfers to swimmers to the Ramones, everyone wants to 'hitch a ride to Rockaway Beach.' Rockaway Beach is a year-round resource for residents all along the Rockaway peninsula, and it comes alive each summer from Memorial Day weekend through Labor Day weekend with millions of visitors. In the wake of Superstorm Sandy, which struck New York City in October 2012, Rockaway Beach has also become a testament to New York's resilience, and a model for sustainable rebuilding."
 
   },
   {
@@ -644,13 +644,13 @@
   "name": "Springfield Playground",
   "location": "147th Avenue and Springfield Boulevard", 
   "address": "Springfield Boulevard & 147th Avenue, Springfield Gardens, NY 11413, USA",
-  "latitude":40.659439,
-  "longitude":-73.761316,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude":40.659931, 
+  "longitude":-73.762163,
+  "website" : "http://www.nycgovparks.org/parks/springfield-park-north",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "This park shares its name with the much larger Springfield Park to its south, a site named after the surrounding neighborhood of Springfield Gardens. An enticing settlement area because of its richness in natural resources, Springfield Gardens remained largely agricultural until the Long Island Rail Road extended to this community, stimulating rapid residential development. Today the park provides recreational facilities for both students in J.H.S. 231 and local residents."
 
   },
   {
@@ -658,13 +658,13 @@
   "name": "Clove Lakes Park",
   "location": "Clove Road & Victory Boulevard ",
   "address": "Clove Lakes Park, 1150 Clove Road, Staten Island, NY 10301, USA",
-  "latitude": 40.620315,
-  "longitude": -74.114983,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.616668, 
+  "longitude": -74.104903,
+  "website" : "http://www.nycgovparks.org/parks/clove-lakes-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/R005/images/featured/18067.jpg",
+  "description" : "A protected Forever Wild site because of its valuable ecological assets, Clove Lakes Park has a rich natural history and a few remnants of the past that remain and continue to thrill visitors. Chief among them are the park's lakes and ponds, outcroppings of serpentine rocks, and Staten Island's largest living things, a three hundred year-old tulip tree.Besides strolling down trails and paddling on its bodies of water to appreciate its beauty, visitors can also experience the park as a more modern recreation zone. Several baseball diamonds, a soccer field, basketball court, playgrounds, and football field dot the park's landscape. Then, of course, there's the Staten Island War Memorial Ice Skating Rink, an outdoor rink located in what could be called the 'active' part of the park, close to its other fields and courts."
 
   },
   {
@@ -672,8 +672,8 @@
   "name": "Willowbrook Park ",
   "location": "Eaton Place Entrance",
   "address": "Willowbrook Park, 1 Eaton place, Staten Island, NY 10314, USA",
-  "latitude": 40.600562,
-  "longitude": -74.158113,
+  "latitude": 40.602918, 
+  "longitude": -74.159633,
   "website" : "http://www.nycgovparks.org/parks/willowbrook-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -686,12 +686,12 @@
   "name": "Wolfe's Pond Park",
   "location": "Cornelia Avenue and Luten Avenue",
   "address": "Wolfes Pond Park, 420 Cornelia Avenue, Staten Island, NY 10312, USA",
-  "latitude": 40.523944,
-  "longitude": -74.193788,
+  "latitude": 40.523907, 
+  "longitude": -74.193809,
   "website" : "http://www.nycgovparks.org/parks/wolfes-pond-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/R031/images/featured/21444.jpg",
+  "photo_url" : "http://www.nycgovparks.org/parks/R031/images/featured/21441.jpg",
   "description" : "As one of Staten Island's largest parks, Wolfe's Pond Park wears many different hats.  To some, it is a beautiful beach.  To others, it is a wildlife and plant preserve.  To still others, it is a recreation area with space to run, jump, and climb.  Choose Wolfe's Pond Park, and choose your own adventure!"
 
   },
@@ -700,13 +700,13 @@
   "name": "Midland Beach",
   "location": "Midland Avenue and Lincoln Avenue",
   "address": "Midland Beach, Staten Island, NY, USA",
-  "latitude": 40.57149,
-  "longitude": -74.093163,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.575796, 
+  "longitude": -74.100597,
+  "website" : "http://www.nycgovparks.org/parks/fdr-boardwalk-and-beach/highlights/12257",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "Midland Beach is part of one of New York City’s four beachfront areas. Its orange-colored sands, and the waves of the Atlantic Ocean have long served as a refuge from the congestion and confinement of the city."
 
   },
   {
@@ -714,8 +714,8 @@
   "name": "Baisley Pond Park",
   "location": "Sutphin Boulevard & 125th Avenue",
   "address": "Baisley Pond Park, N Conduit Ave & Baisley Blvd S, JAMAICA, NY 11434",
-  "latitude": 40.675583,
-  "longitude": -73.785292,
+  "latitude": 40.674680, 
+  "longitude": -73.788704,
   "website" : "http://www.nycgovparks.org/parks/baisley-pond-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -728,8 +728,8 @@
   "name": "Queensbridge Park",
   "location": "21 Street, Bridge Plaza, Vernon Boulevard, & East River",
   "address": "Queensbridge Park, 21st Street, Long Island City, NY 11101, USA",
-  "latitude": 40.756726,
-  "longitude": -73.948841,
+  "latitude": 40.756746, 
+  "longitude": -73.948808,
   "website" : "http://www.nycgovparks.org/parks/queensbridgepark",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -742,13 +742,13 @@
   "name": "Herbert Von King Park",
   "location": "4 designated areas throughout the park (no amplified sound permitted)",
   "address": "Herbert Von King Park, 670 Lafayette Avenue, Brooklyn, NY 11216, USA",
-  "latitude": 40.689612,
-  "longitude": -73.946732,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.689609, 
+  "longitude": -73.946742,
+  "website" : "http://www.nycgovparks.org/parks/herbert-von-king-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/B088/images/featured/22785.jpg",
+  "description" : "Lying in the heart of Brooklyn’s Bedford-Stuyvesant neighborhood, Herbert Von King Park is a lively town square with a storied history. Originally called Tompkins Park, Von King is one of the first parks in the history of Brooklyn, with a design submitted by Frederick Law Olmsted and Calvert Vaux."
 
   },
   {
@@ -756,8 +756,8 @@
   "name": "Red Hook Park",
   "location": "Bay Street near Columbia Street",
   "address": "Red Hook Recreation Center, 155 Bay Street, Brooklyn, NY 11231, USA",
-  "latitude": 40.672277,
-  "longitude": -74.004022,
+  "latitude": 40.670884, 
+  "longitude": -74.007693,
   "website" : "http://www.nycgovparks.org/parks/red-hook-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -770,13 +770,13 @@
   "name": "Mill Pond Park",
   "location": "Exterior Street & 149th Street (Across from Gateway Mall)",
   "address": "Mill Pond Park, Major Deegan Expressway, Bronx, NY 10451, USA",
-  "latitude": 40.822194,
-  "longitude": -73.931941,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.821915, 
+  "longitude": -73.931821,
+  "website" : "http://www.nycgovparks.org/parks/mill-pond-park",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
-  "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "photo_url" : "http://www.nycgovparks.org/parks/X344/images/featured/22681.jpg",
+  "description" : "The 15-acre park, which opened in October 2009, features 16 Deco Turf tennis courts (Deco Turf is the court surface used at the Olympic Games and the U.S. Open), a picnic and sand play area, a shaded outdoor classroom for kids, an ADA-accessible esplanade suitable for jogging, and views of west Harlem along the Harlem River waterfront."
 
   },
   {
@@ -784,8 +784,8 @@
   "name": "Hunts Point Riverside Park",
   "location": "Lafayette Ave. & Edgewater Road",
   "address": "Hunts Point Riverside Park, Lafayette Avenue, Bronx, NY 10474, USA",
-  "latitude": 40.817721,
-  "longitude": -73.881692,
+  "latitude": 40.817582, 
+  "longitude": -73.881704,
   "website" : "http://www.nycgovparks.org/parks/hunts-point-riverside-park/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -798,8 +798,8 @@
   "name": "Pelham Bay Park",
   "location": "South Picnic Area - Stadium Avenue, behind the tennis courts",
   "address": "Pelham Bay Park, Bronc County Line and Middletown Rd, New York, NY 10464",
-  "latitude": 40.8615,
-  "longitude": -73.7972,
+  "latitude": 40.854768, 
+  "longitude": -73.800554,
   "website" : "http://www.pelhambaypark.org/",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
@@ -812,13 +812,13 @@
   "name": "Picnic Peninsula",
   "location": "Pier 5",
   "address": "Picnic Peninsula, 334 Furman Street, Brooklyn, NY 11201, USA",
-  "latitude": 40.695436,
-  "longitude": -73.999888,
-  "website" : "http://www.nycgovparks.org/",
+  "latitude": 40.695444, 
+  "longitude": -73.999877,
+  "website" : "http://www.brooklynbridgepark.org/park/pier-5",
   "hours" : "6:00 a.m. until 1:00 a.m",
   "rating" : 5,
   "photo_url" : "http://www.nycgovparks.org/parks/Q008/images/featured/18712.jpg",
-  "description" : ""
+  "description" : "Pier 5 is dedicated to active recreation and features playing fields capable of configurations for soccer, lacrosse, rugby, flag football and ultimate Frisbee. Shade sails line the northern and southern sides of the pier to provide shade for spectators. Players and spectators can watch the game from the bleachers and benches situated along the sidelines."
 
   }
   ]
