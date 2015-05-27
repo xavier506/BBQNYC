@@ -21,7 +21,6 @@ user4 = User.create(name: "Adam Abdelaziz", email: "a.j.abdelaziz@gmail.com")
 
 records = JSON.parse(File.read('./full-bbq-locations.json'))
 records.each do |record|
-  #puts record
   Location.create!(record)
 end
 
