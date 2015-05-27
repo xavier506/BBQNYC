@@ -4,6 +4,10 @@
   padding: 0px
 }
 
+#info-window{
+ line-height: 1.35;
+}
+
 .centered {
   text-align: center;
   margin-bottom: 20px;
