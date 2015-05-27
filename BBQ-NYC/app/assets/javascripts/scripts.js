@@ -228,12 +228,23 @@ $(function() {
     }
   });
 
+  // Create Event Show View
+  var EventShowView = Backbone.View.extend({
+    model: Event,
+    el: $('#main'),
+    template: $('script[data-id="event-show-view"]').text(),
+    render: function() {
+      this.$el.html(_.template(this.template, this.model))
+    }
+
+  });
+
   // ------------------------- Router -------------------------
   var Router = Backbone.Router.extend({
     routes: {
       '': 'index',
       'create?location_id=:id': 'createFormView',
-      'event/:id': 'showEventView'
+      'events/:id': 'showEventView'
     },
     index: function() {
       console.log("index hit")
@@ -253,8 +264,14 @@ $(function() {
       var formView = new EventFormView({});
       formView.render();
     },
-    showEventView: function() {
-      
+    showEventView: function(event_id) {
+      console.log("show event hit")
+      console.log(event_id)
+
+      var barbecue = new Event({id: event_id})
+      barbecue.fetch();
+      //console.log(barbecue)
+      var barbecueView = new eventShowView({model: barbecue}); 
     }
   })
 
