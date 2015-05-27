@@ -119,6 +119,7 @@ $(function() {
         }]
       });
 
+      
       var image = {
         url: 'assets/sausage.png',
         // This marker is 30 pixels wide by 30 pixels tall.
@@ -132,7 +133,7 @@ $(function() {
       function infoWindow(marker, map, park) {
 
         google.maps.event.addListener(marker, 'click', function() {
-          var html = "<div id=iw-content><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><button>Grill Here</button></div>";
+          var html = "<div id=iw-content><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><a class='button' href='/#create?location_id="+ park.id+"'>Grill Here</a></div>";
           iw = new google.maps.InfoWindow({
             content: html,
             maxWidth: 500
