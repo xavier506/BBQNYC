@@ -194,12 +194,15 @@ $(function() {
           $('.slider-time').html('Time: ' + hours + ':' + minutes);
         }
       });
-      $("#datepicker").datepicker();
+      $("#datepicker").datepicker(
+          {minDate: new Date()}    
+        );
     },
     createEvent: function(event) {
       event.preventDefault();
       var name = $('[name="event-name"]').val();
-      var date = $('#datepicker').val();
+      var datestring = $('#datepicker').val();
+      var date = Date(datestring);
       var description = $('[name="description"]').val();
 
       // Remove "Time: " label from time value
