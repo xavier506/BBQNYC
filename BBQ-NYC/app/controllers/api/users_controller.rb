@@ -7,7 +7,7 @@ module Api
 
       @user = User.find(params[:name])
       @event = Event.find(params[:name])
-      UserNotifier.send_srsvp_email(@user).deliver
+      UserNotifier.send_rsvp_email(@user, @event).deliver
     end
 
     def update
