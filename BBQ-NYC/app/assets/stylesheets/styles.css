@@ -1,12 +1,69 @@
+body {
+    background: white ;
+}
+
+.header{
+  text-align: center;
+}
+
+.footer{
+  padding: 0 0 10px 15px;
+}
+
+.logo {
+  width: 132px;
+  height: 117px;
+
+  margin: 10px 0 0 0; 
+}
+
 #map-canvas {
-  height: 800px;
-  margin: 0px;
-  padding: 0px
+  height: 500px;
+  width: 960px;
+  margin: 0 auto;
+  padding: 0px;
+
+  border:2px solid yellowgreen;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.42);
+  -webkit-box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.42);
 }
 
 #iw-content {
  line-height: 1.35;
  scrolling=no
+}
+
+.iw-image {
+  float:left;
+  margin: 2px 10px 2px 2px ;
+
+  border:1px solid #;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; 
+
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.42);
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.42);
+}
+
+.iw-info{
+  margin: 0;
+}
+
+.iw-ratings{
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.iw-website {
+  margin: 0 0 0 25px;
+}
+
+#iw-description {
+  
 }
 
 .centered {
@@ -19,7 +76,7 @@
 }
 
 ol.steps {
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 0;
   list-style-type none;
 } 
@@ -28,6 +85,7 @@ ol.steps li {
   display: inline-block;
   text-align: center;
   line-height: 3em;
+  font-size: 1.4em;
 }
 
 ol.steps[data-steps="2"] li { width: 49%; }
@@ -84,3 +142,7 @@ ol.steps li.to-do:before {
   bottom: -1.6em;
 }
 
+.footer {
+  font-size: 12px;
+  color:#666;
+}

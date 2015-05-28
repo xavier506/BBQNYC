@@ -49,75 +49,9 @@ $(function() {
 
       this.map = new google.maps.Map(this.$el.find('#map-canvas')[0], {
         center: new google.maps.LatLng(40.740000, -73.940000),
-        zoom: 10,
+        zoom: 11,
         // Snazzy Maps Style
-        styles: [{
-          "featureType": "landscape",
-          "stylers": [{
-            "hue": "#FFA800"
-          }, {
-            "saturation": 0
-          }, {
-            "lightness": 0
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "road.highway",
-          "stylers": [{
-            "hue": "#53FF00"
-          }, {
-            "saturation": -73
-          }, {
-            "lightness": 40
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "road.arterial",
-          "stylers": [{
-            "hue": "#FBFF00"
-          }, {
-            "saturation": 0
-          }, {
-            "lightness": 0
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "road.local",
-          "stylers": [{
-            "hue": "#00FFFD"
-          }, {
-            "saturation": 0
-          }, {
-            "lightness": 30
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "water",
-          "stylers": [{
-            "hue": "#00BFFF"
-          }, {
-            "saturation": 6
-          }, {
-            "lightness": 8
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "poi",
-          "stylers": [{
-            "hue": "#679714"
-          }, {
-            "saturation": 33.4
-          }, {
-            "lightness": -25.4
-          }, {
-            "gamma": 1
-          }]
-        }]
+        styles: [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}]
       });
 
 
@@ -134,10 +68,12 @@ $(function() {
       function infoWindow(marker, map, park) {
 
         google.maps.event.addListener(marker, 'click', function() {
-          var html = "<div id=iw-content><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><a class='button' href='/#create?location_id=" + park.id + "'>Grill Here</a></div>";
+
+          var html = "<div id=iw-content><img class='iw-image' src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p class='iw-info'><b>location:</b> " + park.location + "<br/><b>address: </b><em>" + park.address + "</em><br/><b>park hours: </b>" + park.hours + "</p><span class='iw-ratings'>&hearts; " + park.rating + "</span><a class='iw-website' href='" + park.website + "' target='_blank'>visit park website</a><p class='iw-description'>" + park.description + "</p><a class='button' href='/#create?location_id=" + park.id + "'>Grill Here</a></div>";
+
           iw = new google.maps.InfoWindow({
             content: html,
-            maxWidth: 500
+            maxWidth: 680
           });
           iw.open(map, marker);
         });
@@ -179,6 +115,7 @@ $(function() {
     render: function() {
       this.$el.html(this.template());
       this.initializeMap();
+      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
     }
   });
 
@@ -192,6 +129,8 @@ $(function() {
     },
     render: function() {
       this.$el.html(_.template(this.template))
+      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
+      $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
     },
     createEvent: function(event) {
       event.preventDefault();
@@ -254,6 +193,9 @@ $(function() {
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
       this.$el.html(this.template(this.model.attributes))
+      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
+      $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
+      $( ".steps li:nth-child(3)" ).addClass('done').removeClass('to-do'); 
     },
     saveRSVP: function(rsvp_value) {
       var user_data = this.user.toJSON();
