@@ -13,7 +13,8 @@ $(function() {
 
   var User = Backbone.Model.extend({
     initialize: function(attributes, options) {
-      this.event_id = options.event_id;
+      this.event_id = options.event_id,
+      this.rsvp = options.rsvp;
     },
     urlRoot: function() {
       return '/api/events/' + this.event_id + '/users'
@@ -119,7 +120,7 @@ $(function() {
         }]
       });
 
-      
+
       var image = {
         url: 'assets/sausage.png',
         // This marker is 30 pixels wide by 30 pixels tall.
@@ -133,7 +134,7 @@ $(function() {
       function infoWindow(marker, map, park) {
 
         google.maps.event.addListener(marker, 'click', function() {
-          var html = "<div id=iw-content><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><a class='button' href='/#create?location_id="+ park.id+"'>Grill Here</a></div>";
+          var html = "<div id=iw-content><img src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p>location: " + park.location + "<br/><em>address: " + park.address + "</em></p><p>description: " + park.description + "</p><p>hours: " + park.hours + "</p><p>rating: " + park.rating + "</p><p><a href='" + park.website + "' target='_blank'>visit park website</a></p><a class='button' href='/#create?location_id=" + park.id + "'>Grill Here</a></div>";
           iw = new google.maps.InfoWindow({
             content: html,
             maxWidth: 500
@@ -225,9 +226,10 @@ $(function() {
             name: host_name,
             email: host_email
           }, {
-            event_id: e.get("id")
+            event_id: e.get("id"),
+          }, {
+            rsvp: null
           });
-          console.log(e.get("id"))
           u.save();
         }
       });
@@ -236,14 +238,17 @@ $(function() {
 
   // Event Show View
   var EventShowView = Backbone.View.extend({
-    initialize: function() {
-      console.log(this.model, this.user)
+    initialize: function(options) {
+      this.model = options.model
+      this.user = options.user
       this.render();
     },
     el: $('#main'),
     events: {
       'click [data-action="invite"]': 'inviteFriend',
-      'click [data-action="going"]': 'rsvp'
+      'click [data-action="going"]': 'rsvp',
+      'click [data-action="not-going"]': 'un_rsvp',
+      'click [data-action="maybe"]': 'maybe'
     },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
@@ -251,9 +256,19 @@ $(function() {
       this.$el.html(this.template(this.model.attributes))
     },
     rsvp: function() {
-      // user = this.model
-      // user.rsvp = true
-      // user.save()
+      var user_data = this.user.toJSON();
+      user_data.rsvp = true
+      this.user.save(user_data)
+    },
+    un_rsvp: function() {
+      var user_data = this.user.toJSON();
+      user_data.rsvp = false
+      this.user.save(user_data)
+    },
+    maybe: function() {
+      var user_data = this.user.toJSON();
+      user_data.rsvp = null
+      this.user.save(user_data)
     },
     inviteFriend: function(event) {
       event.preventDefault();
@@ -267,6 +282,8 @@ $(function() {
         name: friendName
       }, {
         event_id: this.model.get("id")
+      }, {
+        rsvp: null
       });
 
       friend.save();
@@ -280,7 +297,7 @@ $(function() {
     routes: {
       '': 'index',
       'create?location_id=:id': 'createFormView',
-      'events/:id/users/:id': 'showEventView'
+      'events/:event_id/users/:user_id': 'showEventView'
     },
     index: function() {
       var locations = new LocationsCollection();
@@ -299,16 +316,22 @@ $(function() {
       var formView = new EventFormView({});
       formView.render();
     },
-    showEventView: function(event_id) {
+    showEventView: function(event_id, user_id) {
       var barbecue = new Event({
         id: event_id
       })
       barbecue.fetch({
         success: function(data) {
-          var barbecueView = new EventShowView({
-            model: data
+          var user = new User({id: user_id}, {event_id: event_id}, {rsvp: null})
+          user.fetch({
+            success: function(user_data) {
+              var barbecueView = new EventShowView({
+              model: data, user: user_data
+            });
+            }
           });
-        }
+            
+          }
       });
     }
   });
