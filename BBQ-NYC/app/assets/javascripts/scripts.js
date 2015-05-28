@@ -1,6 +1,6 @@
 $(function() {
 
-  console.log("scripts.js linked")
+  console.log("scripts.js linked");
 
   // ------------------------- Models -------------------------
   var Location = Backbone.Model.extend({
@@ -17,7 +17,7 @@ $(function() {
         this.rsvp = options.rsvp;
     },
     urlRoot: function() {
-      return '/api/events/' + this.event_id + '/users'
+      return '/api/events/' + this.event_id + '/users';
     }
   });
 
@@ -42,7 +42,6 @@ $(function() {
         reset: true
       });
     },
-
     template: _.template($('script[data-id="map-view"]').html()),
 
     initializeMap: function() {
@@ -51,73 +50,7 @@ $(function() {
         center: new google.maps.LatLng(40.740000, -73.940000),
         zoom: 11,
         // Snazzy Maps Style
-        styles: [{
-          "featureType": "landscape",
-          "stylers": [{
-            "hue": "#FFA800"
-          }, {
-            "saturation": 0
-          }, {
-            "lightness": 0
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "road.highway",
-          "stylers": [{
-            "hue": "#53FF00"
-          }, {
-            "saturation": -73
-          }, {
-            "lightness": 40
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "road.arterial",
-          "stylers": [{
-            "hue": "#FBFF00"
-          }, {
-            "saturation": 0
-          }, {
-            "lightness": 0
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "road.local",
-          "stylers": [{
-            "hue": "#00FFFD"
-          }, {
-            "saturation": 0
-          }, {
-            "lightness": 30
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "water",
-          "stylers": [{
-            "hue": "#00BFFF"
-          }, {
-            "saturation": 6
-          }, {
-            "lightness": 8
-          }, {
-            "gamma": 1
-          }]
-        }, {
-          "featureType": "poi",
-          "stylers": [{
-            "hue": "#679714"
-          }, {
-            "saturation": 33.4
-          }, {
-            "lightness": -25.4
-          }, {
-            "gamma": 1
-          }]
-        }]
+        styles: [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}]
       });
 
 
@@ -145,8 +78,8 @@ $(function() {
         });
 
         google.maps.event.addListener(map, 'click', function() {
-          iw.close()
-        })
+          iw.close();
+        });
       }
 
       this.collection.each(function(park) {
@@ -160,7 +93,7 @@ $(function() {
           fillColor: '#FF0000',
           fillOpacity: 0.35,
           map: this.map,
-          radius: 100
+          radius: 250
         });
 
         var marker = new google.maps.Marker({
@@ -170,14 +103,10 @@ $(function() {
           animation: google.maps.Animation.DROP,
           title: park.get('name'),
           zIndex: 10
-
         });
-
         infoWindow(marker, this.map, park.toJSON());
       }.bind(this));
-
     },
-
     render: function() {
       this.$el.html(this.template());
       this.initializeMap();
@@ -194,11 +123,7 @@ $(function() {
       'submit': 'createEvent'
     },
     render: function() {
-      this.$el.html(_.template(this.template))
-// <<<<<<< HEAD
-//       $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
-//       $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
-// =======
+      this.$el.html(_.template(this.template));
       $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
       $("#slider").slider({
@@ -212,7 +137,7 @@ $(function() {
           var minutes = ui.value - (hours * 60);
           if (hours.length == 1) hours = '0' + hours;
           if (minutes.length == 1) minutes = '0' + minutes;
-          if (minutes == 0) minutes = '00';
+          if (minutes === 0) minutes = '00';
           if (hours >= 12) {
             if (hours == 12) {
               hours = hours;
@@ -225,7 +150,7 @@ $(function() {
             hours = hours;
             minutes = minutes + " AM";
           }
-          if (hours == 0) {
+          if (hours === 0) {
             hours = 12;
             minutes = minutes;
           }
@@ -233,7 +158,6 @@ $(function() {
         }
       });
       $("#datepicker").datepicker();
-// >>>>>>> fa78db9157fa90b52e599c8e05b922df0bf4b3cb
     },
     createEvent: function(event) {
       event.preventDefault();
@@ -245,12 +169,12 @@ $(function() {
 
       // Remove "Time: " label from time value
       var time = $('.slider-time').html();
-      time = time.slice(6, time.length)
+      time = time.slice(6, time.length);
 
       // Hashtags stored without # characters
       var hashtag = $('[name="hashtag"]').val();
       if (hashtag.charAt(0) === "#") {
-        hashtag = hashtag.slice(1, hashtag.length)
+        hashtag = hashtag.slice(1, hashtag.length);
       }
 
       var newEvent = {
@@ -259,7 +183,7 @@ $(function() {
         date: date,
         description: description,
         time: time
-      }
+      };
       var e = new Event(newEvent);
 
       e.save(newEvent, {
@@ -280,7 +204,7 @@ $(function() {
                 trigger: true
               });
             }
-          })
+          });
         }
       });
     }
@@ -289,43 +213,36 @@ $(function() {
   // Event Show View
   var EventShowView = Backbone.View.extend({
     initialize: function(options) {
-      this.model = options.model
-      this.user = options.user
+      this.model = options.model;
+      this.user = options.user;
       this.render();
     },
     el: $('#main'),
     events: {
       'click [data-action="invite"]': 'inviteFriend',
       'click [data-action="going"]': function() {
-        this.saveRSVP(true)
+        this.saveRSVP(true);
       },
       'click [data-action="not-going"]': function() {
-        this.saveRSVP(false)
+        this.saveRSVP(false);
       },
       'click [data-action="maybe"]': function() {
-        this.saveRSVP(null)
+        this.saveRSVP(null);
       }
     },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
-      this.$el.html(this.template(this.model.attributes))
-// <<<<<<< HEAD
-//       $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
-//       $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
-//       $(".steps li:nth-child(3)").addClass('done').removeClass('to-do');
-// =======
+      this.$el.html(this.template(this.model.attributes));
       $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(3)" ).addClass('done').removeClass('to-do');
       $("#radio").buttonset();
-   
-// >>>>>>> fa78db9157fa90b52e599c8e05b922df0bf4b3cb
     },
     saveRSVP: function(rsvp_value) {
       var user_data = this.user.toJSON();
-      user_data.rsvp = rsvp_value
-      this.user.save(user_data)
+      user_data.rsvp = rsvp_value;
+      this.user.save(user_data);
     },
     // going: function() {
     //   this.saveRSVP(true)
@@ -341,7 +258,7 @@ $(function() {
       var friendEmail = $('input[data-attr="friend-email"]').val();
 
       // create a new user
-      var friendName = null
+      var friendName = null;
       var friend = new User({
         email: friendEmail,
         name: friendName
@@ -378,7 +295,7 @@ $(function() {
     showEventView: function(event_id, user_id) {
       var barbecue = new Event({
         id: event_id
-      })
+      });
       barbecue.fetch({
         success: function(data) {
           var user = new User({
@@ -387,7 +304,7 @@ $(function() {
             event_id: event_id
           }, {
             rsvp: null
-          })
+          });
           user.fetch({
             success: function(user_data) {
               var barbecueView = new EventShowView({
@@ -396,13 +313,12 @@ $(function() {
               });
             }
           });
-
         }
       });
     }
   });
 
-  var myRouter = new Router()
-  Backbone.history.start()
+  var myRouter = new Router();
+  Backbone.history.start();
 
 });
