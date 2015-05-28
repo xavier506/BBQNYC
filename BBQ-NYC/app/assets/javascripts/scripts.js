@@ -260,8 +260,6 @@ $(function() {
       this.rsvpCollection = options.rsvpCollection
       this.supplyCollection = options.supplyCollection
       this.rsvp = this.rsvpCollection.findWhere({event_id: this.model.get('id'), user_id: this.user.get('id')})
-      console.log(this.rsvp);
-
       this.render();
     },
     el: $('#main'),
@@ -273,7 +271,7 @@ $(function() {
     render: function() {
       this.$el.html(this.template(this.model.attributes));
 
-      var rsvpView = new RsvpView({model: this.rsvp})
+      var rsvpView = new RsvpView({model: this.rsvp, el: $('#rsvp-view')})
 
       $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
@@ -306,10 +304,10 @@ $(function() {
 
   var RsvpView = Backbone.View.extend({
     initialize: function() {
+      console.log("rsvp view hit")
       this.render();
     },
     template: _.template($('script[data-id="rsvp-view-template"]').text()),
-    el: $('#rsvp-view'),
     // Watch single rsvp model
     // Render radio buttons
     // Watch for click events on radio buttons
@@ -317,19 +315,25 @@ $(function() {
     // Save
     events: {
       'click [data-action="going"]': function() {
-        // console.log(this.rsvp)
+        this.model.set("rsvp", true)
+        this.model.save();
         // this.rsvp.set("rsvp", "true")
         // this.saveRSVP(true);
       },
       'click [data-action="not-going"]': function() {
+        this.model.set("rsvp", false)
+        this.model.save();
         // this.saveRSVP(false);
       },
       'click [data-action="maybe"]': function() {
+        this.model.set("rsvp", '')
+        this.model.save();
         // this.saveRSVP(null);
       }
     },
     render: function() {
-      this.$el.html(this.template(this.model.attributes));
+      console.log("rsvp view render hit")
+      this.$el.html(this.template);
     }
   });
 

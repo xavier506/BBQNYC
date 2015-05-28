@@ -12,7 +12,7 @@ module Api
     end
 
     def update
-      @rsvp = Rsvp.find_by({user_id: params[:id], event_id: params[:event_id]})
+      @rsvp = Rsvp.find(params[:id])
       @rsvp.rsvp = params[:rsvp]
 
       @rsvp.save
