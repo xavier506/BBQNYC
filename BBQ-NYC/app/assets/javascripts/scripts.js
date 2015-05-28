@@ -13,7 +13,8 @@ $(function() {
 
   var User = Backbone.Model.extend({
     initialize: function(attributes, options) {
-      this.event_id = options.event_id;
+      this.event_id = options.event_id,
+      this.rsvp = options.rsvp;
     },
     urlRoot: function() {
       return '/api/events/' + this.event_id + '/users'
@@ -53,6 +54,7 @@ $(function() {
         styles: [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}]
       });
 
+
       var image = {
         url: 'assets/sausage.png',
         // This marker is 30 pixels wide by 30 pixels tall.
@@ -66,7 +68,9 @@ $(function() {
       function infoWindow(marker, map, park) {
 
         google.maps.event.addListener(marker, 'click', function() {
-          var html = "<div id=iw-content><img class='iw-image' src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p class='iw-info'><b>location:</b> " + park.location + "<br/><b>address: </b><em>" + park.address + "</em><br/><b>park hours: </b>" + park.hours + "</p><span class='iw-ratings'>&hearts; " + park.rating + "</span><a class='iw-website' href='" + park.website + "' target='_blank'>visit park website</a><p class='iw-description'>" + park.description + "</p><button>Grill Here</button></div>";
+
+          var html = "<div id=iw-content><img class='iw-image' src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p class='iw-info'><b>location:</b> " + park.location + "<br/><b>address: </b><em>" + park.address + "</em><br/><b>park hours: </b>" + park.hours + "</p><span class='iw-ratings'>&hearts; " + park.rating + "</span><a class='iw-website' href='" + park.website + "' target='_blank'>visit park website</a><p class='iw-description'>" + park.description + "</p><a class='button' href='/#create?location_id=" + park.id + "'>Grill Here</a></div>";
+
           iw = new google.maps.InfoWindow({
             content: html,
             maxWidth: 680
@@ -161,9 +165,10 @@ $(function() {
             name: host_name,
             email: host_email
           }, {
-            event_id: e.get("id")
+            event_id: e.get("id"),
+          }, {
+            rsvp: null
           });
-          console.log(e.get("id"))
           u.save();
         }
       });
@@ -172,21 +177,40 @@ $(function() {
 
   // Event Show View
   var EventShowView = Backbone.View.extend({
-    initialize: function() {
+    initialize: function(options) {
+      this.model = options.model
+      this.user = options.user
       this.render();
     },
     el: $('#main'),
     events: {
-      'click [data-action="invite"]': 'inviteFriend'
+      'click [data-action="invite"]': 'inviteFriend',
+      'click [data-action="going"]': 'rsvp',
+      'click [data-action="not-going"]': 'un_rsvp',
+      'click [data-action="maybe"]': 'maybe'
     },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
-      console.log("event show render hit")
       this.$el.html(this.template(this.model.attributes))
       $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(3)" ).addClass('done').removeClass('to-do'); 
+    },
+    rsvp: function() {
+      var user_data = this.user.toJSON();
+      user_data.rsvp = true
+      this.user.save(user_data)
+    },
+    un_rsvp: function() {
+      var user_data = this.user.toJSON();
+      user_data.rsvp = false
+      this.user.save(user_data)
+    },
+    maybe: function() {
+      var user_data = this.user.toJSON();
+      user_data.rsvp = null
+      this.user.save(user_data)
     },
     inviteFriend: function(event) {
       event.preventDefault();
@@ -195,16 +219,19 @@ $(function() {
       // create a new user
 
       var friendName = null
-      var friend = new User({ email: friendEmail, name: friendName}, {event_id: this.model.get("id")});
-      
+      var friend = new User({
+        email: friendEmail,
+        name: friendName
+      }, {
+        event_id: this.model.get("id")
+      }, {
+        rsvp: null
+      });
+
       friend.save();
-      // send user invitation 
-
+      // send user invitation
       // refesh guest list on this page 
-  
     }
-
-
   });
 
   // ------------------------- Router -------------------------
@@ -212,7 +239,7 @@ $(function() {
     routes: {
       '': 'index',
       'create?location_id=:id': 'createFormView',
-      'events/:id': 'showEventView'
+      'events/:event_id/users/:user_id': 'showEventView'
     },
     index: function() {
       var locations = new LocationsCollection();
@@ -231,15 +258,25 @@ $(function() {
       var formView = new EventFormView({});
       formView.render();
     },
-    showEventView: function(event_id) {
-      var barbecue = new Event({id: event_id})
+    showEventView: function(event_id, user_id) {
+      var barbecue = new Event({
+        id: event_id
+      })
       barbecue.fetch({
         success: function(data) {
-          var barbecueView = new EventShowView({model: data});
-        }
+          var user = new User({id: user_id}, {event_id: event_id}, {rsvp: null})
+          user.fetch({
+            success: function(user_data) {
+              var barbecueView = new EventShowView({
+              model: data, user: user_data
+            });
+            }
+          });
+            
+          }
       });
     }
-  })
+  });
 
   var myRouter = new Router()
   Backbone.history.start()
