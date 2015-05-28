@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :sessions, only: [:new, :create, :destroy]
+  resource :sessions, except: [:update]
   resources :users, only: [:update]
 
 

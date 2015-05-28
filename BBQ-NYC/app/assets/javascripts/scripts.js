@@ -12,14 +12,20 @@ $(function() {
   });
 
   var User = Backbone.Model.extend({
-    initialize: function(attributes, options) {
-      this.event_id = options.event_id,
-        this.rsvp = options.rsvp;
+    initialize: function() {
+      // an example of how you can make the model
+      // log itself in after being created
+      // this.on('sync', this.login, this);
     },
-    urlRoot: function() {
-      return '/api/events/' + this.event_id + '/users';
-    }
+    urlRoot: '/api/users'
   });
+
+  var UserEvent = Backbone.Model.extend({
+    url: function() {
+      // we want to think about this resource as returning RSVPs
+      return 'api/events/' + this.get('event_id') + '/users'
+    }
+  })
 
   // ------------------------- Collections -------------------------
   var LocationsCollection = Backbone.Collection.extend({
@@ -117,6 +123,12 @@ $(function() {
   // ------------------------- Other Views -------------------------
   // Create Event Page View
   var EventFormView = Backbone.View.extend({
+    initialize: function(opts) {
+      this.listenTo(this.model, 'sync', this.addUserToEvent);
+
+      this.userEvent = opts.userEvent;
+      this.currentUser = opts.currentUser;
+    },
     el: $('#main'),
     template: $('script[data-id="create-event-view"]').text(),
     events: {
@@ -161,8 +173,6 @@ $(function() {
     },
     createEvent: function(event) {
       event.preventDefault();
-      var host_name = $('[name="host-name"]').val();
-      var host_email = $('[name="email"]').val();
       var name = $('[name="event-name"]').val();
       var date = $('#datepicker').val();
       var description = $('[name="description"]').val();
@@ -184,29 +194,31 @@ $(function() {
         description: description,
         time: time
       };
-      var e = new Event(newEvent);
 
-      e.save(newEvent, {
-        success: function() {
-          var u = new User({
-            name: host_name,
-            email: host_email
-          }, {
-            event_id: e.get("id"),
-          }, {
-            rsvp: null
-          });
-          // u.save();
-          u.save({},{
-            success: function() {
-              // Direct to event show page
-              myRouter.navigate('#events/' + e.get("id") + '/users/' + u.get("user_id"), {
-                trigger: true
-              });
-            }
-          });
+      this.model.save(newEvent);
+    },
+
+    addUserToEvent: function() {
+      var actuallyAddTheUserToEvent = function() {
+        this.userEvent.save({
+          user_id: this.currentUser.get('id'), 
+          event_id: this.model.get('id')
+        });
+      }
+
+      if (this.currentUser.isNew()) {
+        var userData = {
+          name: $('[name="host-name"]').val(),
+          email: $('[name="email"]').val()
         }
-      });
+
+        this.currentUser.save(userData, {
+          success: actuallyAddTheUserToEvent.bind(this)
+        });
+
+      } else {
+        actuallyAddTheUserToEvent.apply(this);
+      }
     }
   });
 
@@ -274,10 +286,15 @@ $(function() {
 
   // ------------------------- Router -------------------------
   var Router = Backbone.Router.extend({
+    initialize: function(currentUser) {
+      this.currentUser = currentUser;
+    },
+
     routes: {
       '': 'index',
       'create?location_id=:id': 'createFormView',
-      'events/:event_id/users/:user_id': 'showEventView'
+      // 'events/:id'
+      'events/:event_id': 'showEventView'
     },
     index: function() {
       var locations = new LocationsCollection();
@@ -288,37 +305,38 @@ $(function() {
     },
     createFormView: function(id) {
       var eventModel = new Event();
-      var eventCollection = new EventCollection();
-      var formView = new EventFormView({});
+      var userEvent = new UserEvent();
+
+      var formView = new EventFormView({
+        currentUser: this.currentUser,
+        userEvent: userEvent,
+        model: eventModel
+      });
+
+      this.listenTo(userEvent, 'sync', function(uE) {
+        this.navigate('/events/' + uE.get('id'), true);
+      }.bind(this))
+
       formView.render();
     },
-    showEventView: function(event_id, user_id) {
+    showEventView: function(event_id) {
       var barbecue = new Event({
         id: event_id
       });
       barbecue.fetch({
-        success: function(data) {
-          var user = new User({
-            id: user_id
-          }, {
-            event_id: event_id
-          }, {
-            rsvp: null
+        success: function() {
+          var barbecueView = new EventShowView({
+            model: barbecue,
+            user: this.currentUser
           });
-          user.fetch({
-            success: function(user_data) {
-              var barbecueView = new EventShowView({
-                model: data,
-                user: user_data
-              });
-            }
-          });
-        }
+        }.bind(this)
       });
     }
   });
 
-  var myRouter = new Router();
-  Backbone.history.start();
-
+  // hit GET /sessions 
+    $.getJSON('/sessions').done(function(user) {
+      window.myRouter = new Router(new User(user));
+      Backbone.history.start();
+    });
 });
