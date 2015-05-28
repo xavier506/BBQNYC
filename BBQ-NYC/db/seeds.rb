@@ -12,7 +12,7 @@ User.delete_all
 Event.delete_all
 Location.delete_all
 Supply.delete_all
-UserEvent.delete_all
+Rsvp.delete_all
 
 user1 = User.create(name: "Julia Becker", email: "jcbecker26@gmail.com")
 user2 = User.create(name: "Xavier Fernandex", email: "xavier@gmail.com")
@@ -30,8 +30,8 @@ Supply.create(name: "Bratwurst", user_id: user1.id, event_id: event1.id)
 Supply.create(name: "Mustard", user_id: user2.id, event_id: event1.id)
 Supply.create(name: "Beer", user_id: user1.id, event_id: event1.id)
 
-UserEvent.create(event_id: event1.id, user_id: user1.id, rsvp: true)
-UserEvent.create(event_id: event1.id, user_id: user2.id, rsvp: true)
-UserEvent.create(event_id: event1.id, user_id: user3.id, rsvp: false)
-UserEvent.create(event_id: event1.id, user_id: user4.id)
+Rsvp.create(event_id: event1.id, user_id: user1.id, rsvp: true)
+Rsvp.create(event_id: event1.id, user_id: user2.id, rsvp: true)
+Rsvp.create(event_id: event1.id, user_id: user3.id, rsvp: false)
+Rsvp.create(event_id: event1.id, user_id: user4.id)
 
