@@ -183,7 +183,7 @@ $(function() {
       this.initializeMap();
       $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
     }
-  });
+  }); // end locations collection view
 
   // ------------------------- Other Views -------------------------
   // Create Event Page View
@@ -195,8 +195,45 @@ $(function() {
     },
     render: function() {
       this.$el.html(_.template(this.template))
-      $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
-      $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
+// <<<<<<< HEAD
+//       $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
+//       $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
+// =======
+      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
+      $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
+      $("#slider").slider({
+        animate: "slow",
+        min: 480,
+        max: 1320,
+        step: 15,
+        value: 840,
+        slide: function(e, ui) {
+          var hours = Math.floor(ui.value / 60);
+          var minutes = ui.value - (hours * 60);
+          if (hours.length == 1) hours = '0' + hours;
+          if (minutes.length == 1) minutes = '0' + minutes;
+          if (minutes == 0) minutes = '00';
+          if (hours >= 12) {
+            if (hours == 12) {
+              hours = hours;
+              minutes = minutes + " PM";
+            } else {
+              hours = hours - 12;
+              minutes = minutes + " PM";
+            }
+          } else {
+            hours = hours;
+            minutes = minutes + " AM";
+          }
+          if (hours == 0) {
+            hours = 12;
+            minutes = minutes;
+          }
+          $('.slider-time').html('Time: ' + hours + ':' + minutes);
+        }
+      });
+      $("#datepicker").datepicker();
+// >>>>>>> fa78db9157fa90b52e599c8e05b922df0bf4b3cb
     },
     createEvent: function(event) {
       event.preventDefault();
@@ -273,9 +310,17 @@ $(function() {
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
       this.$el.html(this.template(this.model.attributes))
-      $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
-      $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
-      $(".steps li:nth-child(3)").addClass('done').removeClass('to-do');
+// <<<<<<< HEAD
+//       $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
+//       $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
+//       $(".steps li:nth-child(3)").addClass('done').removeClass('to-do');
+// =======
+      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
+      $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
+      $( ".steps li:nth-child(3)" ).addClass('done').removeClass('to-do');
+      $("#radio").buttonset();
+   
+// >>>>>>> fa78db9157fa90b52e599c8e05b922df0bf4b3cb
     },
     saveRSVP: function(rsvp_value) {
       var user_data = this.user.toJSON();
@@ -359,49 +404,5 @@ $(function() {
 
   var myRouter = new Router()
   Backbone.history.start()
-
-  // ------------------------- jQuery UI stuff -------------------------
-  // Create Event Datepicker
-  $(function() {
-    $("#datepicker").datepicker();
-  });
-  // Create Event Time Slider
-  $(function() {
-    $("#slider").slider({
-      animate: "slow",
-      min: 480,
-      max: 1320,
-      step: 15,
-      value: 840,
-      slide: function(e, ui) {
-        var hours = Math.floor(ui.value / 60);
-        var minutes = ui.value - (hours * 60);
-        if (hours.length == 1) hours = '0' + hours;
-        if (minutes.length == 1) minutes = '0' + minutes;
-        if (minutes == 0) minutes = '00';
-        if (hours >= 12) {
-          if (hours == 12) {
-            hours = hours;
-            minutes = minutes + " PM";
-          } else {
-            hours = hours - 12;
-            minutes = minutes + " PM";
-          }
-        } else {
-          hours = hours;
-          minutes = minutes + " AM";
-        }
-        if (hours == 0) {
-          hours = 12;
-          minutes = minutes;
-        }
-        $('.slider-time').html('Time: ' + hours + ':' + minutes);
-      }
-    });
-  });
-  // Event Detail RSVP Radio Button
-  $(function() {
-    $("#radio").buttonset();
-  });
 
 });
