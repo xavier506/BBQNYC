@@ -11,6 +11,12 @@ $(function() {
     urlRoot: 'api/events'
   });
 
+  var Supply = Backbone.Model.extend({
+    urlRoot: function() {
+      return 'api/events/' + this.get('event_id') + '/supplies'
+    }
+  })
+
   var User = Backbone.Model.extend({
     initialize: function() {
       // an example of how you can make the model
@@ -20,10 +26,10 @@ $(function() {
     urlRoot: '/api/users'
   });
 
-  var UserEvent = Backbone.Model.extend({
-    url: function() {
+  var Rsvp = Backbone.Model.extend({
+    urlRoot: function() {
       // we want to think about this resource as returning RSVPs
-      return 'api/events/' + this.get('event_id') + '/users'
+      return 'api/events/' + this.get('event_id') + '/rsvps'
     }
   })
 
@@ -37,6 +43,26 @@ $(function() {
     url: 'api/events',
     model: Event
   });
+
+  var RsvpCollection = Backbone.Collection.extend({
+    model: Rsvp,
+    initialize: function(opts) {
+      this.event_id = opts.event_id;
+    },
+    url: function() {
+      return 'api/events/' + this.event_id + '/rsvps';
+  }
+});
+
+  var SupplyCollection = Backbone.Collection.extend({
+    model: Supply,
+    initialize: function(opts) {
+      this.event_id = opts.event_id;
+    },
+    url: function() {
+      return 'api/events/' + this.event_id + '/supplies';
+    }
+  })
 
   // ------------------------- Collection Views -------------------------
   var LocationsCollectionView = Backbone.View.extend({
@@ -125,8 +151,7 @@ $(function() {
   var EventFormView = Backbone.View.extend({
     initialize: function(opts) {
       this.listenTo(this.model, 'sync', this.addUserToEvent);
-
-      this.userEvent = opts.userEvent;
+      this.rsvp = opts.rsvp;
       this.currentUser = opts.currentUser;
     },
     el: $('#main'),
@@ -200,7 +225,7 @@ $(function() {
 
     addUserToEvent: function() {
       var actuallyAddTheUserToEvent = function() {
-        this.userEvent.save({
+        this.rsvp.save({
           user_id: this.currentUser.get('id'), 
           event_id: this.model.get('id')
         });
@@ -222,48 +247,40 @@ $(function() {
     }
   });
 
-  // Event Show View
-  var EventShowView = Backbone.View.extend({
+  // Event Details View
+  var EventDetailsView = Backbone.View.extend({
     initialize: function(options) {
+      // Event
       this.model = options.model;
+      // Current user
       this.user = options.user;
+      this.rsvpCollection = options.rsvpCollection
+      this.supplyCollection = options.supplyCollection
+      this.rsvp = this.rsvpCollection.findWhere({event_id: this.model.get('id'), user_id: this.user.get('id')})
+      console.log(this.rsvp);
+
       this.render();
     },
     el: $('#main'),
     events: {
       'click [data-action="invite"]': 'inviteFriend',
-      'click [data-action="going"]': function() {
-        this.saveRSVP(true);
-      },
-      'click [data-action="not-going"]': function() {
-        this.saveRSVP(false);
-      },
-      'click [data-action="maybe"]': function() {
-        this.saveRSVP(null);
-      }
     },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
       this.$el.html(this.template(this.model.attributes));
+
+      var rsvpView = new RsvpView({model: this.rsvp})
+
       $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
       $( ".steps li:nth-child(3)" ).addClass('done').removeClass('to-do');
       $("#radio").buttonset();
     },
-    saveRSVP: function(rsvp_value) {
-      var user_data = this.user.toJSON();
-      user_data.rsvp = rsvp_value;
-      this.user.save(user_data);
-    },
-    // going: function() {
-    //   this.saveRSVP(true)
-    // },
-    // not_going: function() {
-    //   this.saveRSVP(false)
-    // },
-    // maybe: function() {
-    //   this.saveRSVP(null)
+    // saveRSVP: function(rsvp_value) {
+    //   var user_data = this.user.toJSON();
+    //   user_data.rsvp = rsvp_value;
+    //   this.user.save(user_data);
     // },
     inviteFriend: function(event) {
       event.preventDefault();
@@ -284,6 +301,35 @@ $(function() {
     }
   });
 
+  var RsvpView = Backbone.View.extend({
+    initialize: function() {
+      this.render();
+    },
+    template: _.template($('script[data-id="rsvp-view-template"]').text()),
+    el: $('#rsvp-view'),
+    // Watch single rsvp model
+    // Render radio buttons
+    // Watch for click events on radio buttons
+    // Set rsvp value on rsvp model
+    // Save
+    events: {
+      'click [data-action="going"]': function() {
+        // console.log(this.rsvp)
+        // this.rsvp.set("rsvp", "true")
+        // this.saveRSVP(true);
+      },
+      'click [data-action="not-going"]': function() {
+        // this.saveRSVP(false);
+      },
+      'click [data-action="maybe"]': function() {
+        // this.saveRSVP(null);
+      }
+    },
+    render: function() {
+      this.$el.html(this.template(this.model.attributes));
+    }
+  });
+
   // ------------------------- Router -------------------------
   var Router = Backbone.Router.extend({
     initialize: function(currentUser) {
@@ -293,7 +339,6 @@ $(function() {
     routes: {
       '': 'index',
       'create?location_id=:id': 'createFormView',
-      // 'events/:id'
       'events/:event_id': 'showEventView'
     },
     index: function() {
@@ -305,15 +350,15 @@ $(function() {
     },
     createFormView: function(id) {
       var eventModel = new Event();
-      var userEvent = new UserEvent();
+      var rsvp = new Rsvp();
 
       var formView = new EventFormView({
         currentUser: this.currentUser,
-        userEvent: userEvent,
+        rsvp: rsvp,
         model: eventModel
       });
 
-      this.listenTo(userEvent, 'sync', function(uE) {
+      this.listenTo(rsvp, 'sync', function(uE) {
         this.navigate('/events/' + uE.get('id'), true);
       }.bind(this))
 
@@ -323,11 +368,19 @@ $(function() {
       var barbecue = new Event({
         id: event_id
       });
+      var rsvpCollection = new RsvpCollection({event_id: event_id})
+      rsvpCollection.fetch();
+
+      // var supplyCollection = new SupplyCollection({event_id: event_id})
+      // supplyCollection.fetch();
+
       barbecue.fetch({
         success: function() {
-          var barbecueView = new EventShowView({
+          var barbecueView = new EventDetailsView({
             model: barbecue,
-            user: this.currentUser
+            user: this.currentUser,
+            rsvpCollection: rsvpCollection,
+            // supplyCollection: supplyCollection
           });
         }.bind(this)
       });
