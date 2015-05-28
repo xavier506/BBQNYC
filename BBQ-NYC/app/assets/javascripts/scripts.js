@@ -231,27 +231,25 @@ $(function() {
       $("#radio").buttonset();
    
     },
-    rsvp: function() {
+    saveRSVP: function(rsvp_value) {
       var user_data = this.user.toJSON();
-      user_data.rsvp = true
+      user_data.rsvp = rsvp_value
       this.user.save(user_data)
+    },
+    rsvp: function() {
+      this.saveRSVP(true)
     },
     un_rsvp: function() {
-      var user_data = this.user.toJSON();
-      user_data.rsvp = false
-      this.user.save(user_data)
+      this.saveRSVP(false)
     },
     maybe: function() {
-      var user_data = this.user.toJSON();
-      user_data.rsvp = null
-      this.user.save(user_data)
+      this.saveRSVP(null)
     },
     inviteFriend: function(event) {
       event.preventDefault();
       var friendEmail = $('input[data-attr="friend-email"]').val();
 
       // create a new user
-
       var friendName = null
       var friend = new User({
         email: friendEmail,
@@ -283,8 +281,6 @@ $(function() {
       });
     },
     createFormView: function(id) {
-      console.log(id);
-      console.log("create event hit")
 
       var eventModel = new Event();
 
