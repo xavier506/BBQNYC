@@ -3,7 +3,7 @@
 </script>
 
 <div class="row">
-  <form action="/users/<%= @user.id %>" method="POST">
+  <form action="/api/users/<%= @user.id %>" method="POST">
     <h2>Hey, you're new! Add your name</h2>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input name="_method" type="hidden" value="PUT">

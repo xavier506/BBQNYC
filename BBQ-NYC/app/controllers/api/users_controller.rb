@@ -5,23 +5,25 @@ module Api
       #@user_event = UserEvent.create({user_id: params[:user_id], event_id: params[:event_id]})
       #render json: @user_event
 
-      @user = User.find(params[:name])
-      @event = Event.find(params[:name])
-      UserNotifier.send_rsvp_email(@user, @event).deliver
+      @user = User.find_or_initialize_by({email: params[:email]})
+      if @user.name == nil
+        @user.name = params[:name]
+      end 
+      @user.save
+
+      # @event = Event.find_by({name: params[:name]})
+
+      render json: @user
     end
 
     def update
-      #@user_event = UserEvent.find_by({user_id: params[:id], event_id: params[:event_id]})
-      #@user_event.rsvp = params[:rsvp]
-
-      #@user_event.save
-      #render json: @user
+      @user = User.find(params[:id])
+      @user.name = params[:name]
+      @user.save
+      # render json: @user
+      redirect_to '/#events/' + params[:event_id]
     end
 
-    def show
-      #@user = User.find(params[:id])
-      #render json: @user
-    end
 
   end
 end

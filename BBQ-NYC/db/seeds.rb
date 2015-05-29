@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-puts Dir.pwd
-
 User.delete_all
 Event.delete_all
 Location.delete_all
@@ -24,7 +22,7 @@ records.each do |record|
   Location.create!(record)
 end
 
-event1 = Event.create(name: "Knope BBQ", hashtag: "nothorns", description: "Let's celebrate surviving WDI with burgers, brats, and booze!", date: "2015-06-09", time: "2:00 PM", location_id: 1)
+event1 = Event.create(name: "Knope BBQ", hashtag: "nothorns", description: "Let's celebrate surviving WDI with burgers, brats, and booze! Bacon ipsum dolor amet hamburger ham tongue pork belly venison pancetta alcatra pork. Rump ribeye pig shank, sirloin cow spare ribs chicken.", date: "June 10, 2015", time: "2:00 PM", location_id: Location.first.id)
 
 Supply.create(name: "Bratwurst", user_id: user1.id, event_id: event1.id)
 Supply.create(name: "Mustard", user_id: user2.id, event_id: event1.id)

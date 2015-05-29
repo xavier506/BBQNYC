@@ -7,12 +7,9 @@ Rails.application.routes.draw do
   get '/name-yo-self' => 'users#name'
 
   namespace :api do
-    resources :users, except: [:update]
+    resources :users, except: [:destroy]
     resources :locations, only: [:index, :show]
     resources :events, except: [:destroy] do
-      # GET /api/events/1/users
-      # POST /api/events/1/users
-      # add and create if needed
       resources :rsvps, except: [:destroy]
       resources :supplies
     end

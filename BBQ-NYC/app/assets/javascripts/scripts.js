@@ -51,8 +51,8 @@ $(function() {
     },
     url: function() {
       return 'api/events/' + this.event_id + '/rsvps';
-  }
-});
+    }
+  });
 
   var SupplyCollection = Backbone.Collection.extend({
     model: Supply,
@@ -82,7 +82,73 @@ $(function() {
         center: new google.maps.LatLng(40.740000, -73.940000),
         zoom: 11,
         // Snazzy Maps Style
-        styles: [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}]
+        styles: [{
+          "featureType": "landscape",
+          "stylers": [{
+            "hue": "#FFA800"
+          }, {
+            "saturation": 0
+          }, {
+            "lightness": 0
+          }, {
+            "gamma": 1
+          }]
+        }, {
+          "featureType": "road.highway",
+          "stylers": [{
+            "hue": "#53FF00"
+          }, {
+            "saturation": -73
+          }, {
+            "lightness": 40
+          }, {
+            "gamma": 1
+          }]
+        }, {
+          "featureType": "road.arterial",
+          "stylers": [{
+            "hue": "#FBFF00"
+          }, {
+            "saturation": 0
+          }, {
+            "lightness": 0
+          }, {
+            "gamma": 1
+          }]
+        }, {
+          "featureType": "road.local",
+          "stylers": [{
+            "hue": "#00FFFD"
+          }, {
+            "saturation": 0
+          }, {
+            "lightness": 30
+          }, {
+            "gamma": 1
+          }]
+        }, {
+          "featureType": "water",
+          "stylers": [{
+            "hue": "#00BFFF"
+          }, {
+            "saturation": 6
+          }, {
+            "lightness": 8
+          }, {
+            "gamma": 1
+          }]
+        }, {
+          "featureType": "poi",
+          "stylers": [{
+            "hue": "#679714"
+          }, {
+            "saturation": 33.4
+          }, {
+            "lightness": -25.4
+          }, {
+            "gamma": 1
+          }]
+        }]
       });
 
 
@@ -161,8 +227,8 @@ $(function() {
     },
     render: function() {
       this.$el.html(_.template(this.template));
-      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
-      $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
+      $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
+      $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
       $("#slider").slider({
         animate: "slow",
         min: 480,
@@ -195,14 +261,14 @@ $(function() {
         }
       });
       $("#datepicker").datepicker(
-          {minDate: new Date()}    
-        );
+         {minDate: new Date(),
+         dateFormat: "mm-dd-yy"}    
+       );
     },
     createEvent: function(event) {
       event.preventDefault();
       var name = $('[name="event-name"]').val();
-      var datestring = $('#datepicker').val();
-      var date = Date(datestring);
+      var date = $('#datepicker').val();
       var description = $('[name="description"]').val();
 
       // Remove "Time: " label from time value
@@ -214,7 +280,6 @@ $(function() {
       if (hashtag.charAt(0) === "#") {
         hashtag = hashtag.slice(1, hashtag.length);
       }
-
       var newEvent = {
         name: name,
         hashtag: hashtag,
@@ -222,32 +287,43 @@ $(function() {
         description: description,
         time: time
       };
-
       this.model.save(newEvent);
     },
 
     addUserToEvent: function() {
       var actuallyAddTheUserToEvent = function() {
-        this.rsvp.save({
-          user_id: this.currentUser.get('id'), 
+        var rsvpData = {
+          user_id: this.currentUser.get('id'),
           event_id: this.model.get('id')
+        };
+        this.rsvp.save(rsvpData, {
+          success: function(rsvp) {
+            var user_id = rsvp.get('user_id')
+            $.ajax({
+              url: '/sessions',
+              method: 'POST',
+              data: {id: user_id}
+            }).done(function() {
+            })
+          }
         });
       }
 
-      if (this.currentUser.isNew()) {
-        var userData = {
-          name: $('[name="host-name"]').val(),
-          email: $('[name="email"]').val()
-        }
-
-        this.currentUser.save(userData, {
-          success: actuallyAddTheUserToEvent.bind(this)
-        });
-
-      } else {
-        actuallyAddTheUserToEvent.apply(this);
+    if (this.currentUser.isNew()) {
+      var userData = {
+        name: $('[name="host-name"]').val(),
+        email: $('[name="email"]').val()
       }
+
+      this.currentUser.save(userData, {
+        success: actuallyAddTheUserToEvent.bind(this)
+      });
+
+    } else {
+      actuallyAddTheUserToEvent.apply(this);
     }
+
+  }
   });
 
   // Event Details View
@@ -259,83 +335,94 @@ $(function() {
       this.user = options.user;
       this.rsvpCollection = options.rsvpCollection
       this.supplyCollection = options.supplyCollection
-      this.rsvp = this.rsvpCollection.findWhere({event_id: this.model.get('id'), user_id: this.user.get('id')})
+      this.rsvp = this.rsvpCollection.findWhere({
+        event_id: this.model.get('id'),
+        user_id: this.user.get('id')
+      })
       this.render();
     },
     el: $('#main'),
-    events: {
-      'click [data-action="invite"]': 'inviteFriend',
-    },
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
+      console.log(this.model.attributes)
       this.$el.html(this.template(this.model.attributes));
+      var rsvpView = new RsvpView({
+        model: this.rsvp,
+        el: $('#rsvp-view')
+      })
+      var inviteView = new InviteView({
+        model: this.model,
+        collection: this.rsvpCollection,
+        el: $('#invite-view')
+      })
 
-      var rsvpView = new RsvpView({model: this.rsvp, el: $('#rsvp-view')})
-
-      $( ".steps li:nth-child(1)" ).addClass('done').removeClass('to-do');
-      $( ".steps li:nth-child(2)" ).addClass('done').removeClass('to-do');
-      $( ".steps li:nth-child(3)" ).addClass('done').removeClass('to-do');
+      $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
+      $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
+      $(".steps li:nth-child(3)").addClass('done').removeClass('to-do');
       $("#radio").buttonset();
     },
-    // saveRSVP: function(rsvp_value) {
-    //   var user_data = this.user.toJSON();
-    //   user_data.rsvp = rsvp_value;
-    //   this.user.save(user_data);
-    // },
-    inviteFriend: function(event) {
-      event.preventDefault();
-      var friendEmail = $('input[data-attr="friend-email"]').val();
 
-      // create a new user
-      var friendName = null;
-      var friend = new User({
-        email: friendEmail,
-        name: friendName
-      }, {
-        event_id: this.model.get("id")
-      }, {
-        rsvp: null
-      });
-
-      friend.save();
-    }
   });
 
   var RsvpView = Backbone.View.extend({
     initialize: function() {
-      console.log("rsvp view hit")
       this.render();
     },
     template: _.template($('script[data-id="rsvp-view-template"]').text()),
-    // Watch single rsvp model
-    // Render radio buttons
-    // Watch for click events on radio buttons
-    // Set rsvp value on rsvp model
-    // Save
+    saveRSVP: function(rsvp_value) {
+      this.model.set("rsvp", rsvp_value);
+      this.model.save();
+    },
     events: {
       'click [data-action="going"]': function() {
-        this.model.set("rsvp", true)
-        this.model.save();
-        // this.rsvp.set("rsvp", "true")
-        // this.saveRSVP(true);
+        this.saveRSVP(true)
       },
       'click [data-action="not-going"]': function() {
-        this.model.set("rsvp", false)
-        this.model.save();
-        // this.saveRSVP(false);
+        this.saveRSVP(false)
       },
       'click [data-action="maybe"]': function() {
-        this.model.set("rsvp", '')
-        this.model.save();
-        // this.saveRSVP(null);
+        this.saveRSVP('')
       }
     },
     render: function() {
-      console.log("rsvp view render hit")
       this.$el.html(this.template);
     }
   });
+
+  var InviteView = Backbone.View.extend({
+    initialize: function(opts) {
+      this.model = opts.model;
+      this.collection = opts.collection;
+      this.render();
+    },
+    template: _.template($('script[data-id="invite-view-template"]').text()),
+    events: {
+      'click [data-action="invite"]': 'inviteFriend',
+    },
+    inviteFriend: function(event) {
+      event.preventDefault();
+      var friendEmail = $('input[data-attr="friend-email"]').val();
+      var friendName = null;
+      var friend = new User({
+        email: friendEmail,
+        name: friendName
+      });
+
+      friend.save({}, {
+        success: function(user) {
+          var rsvp = new Rsvp({
+            user_id: user.get('id'),
+            event_id: this.model.get('id')
+          })
+          this.collection.create(rsvp);
+        }.bind(this)
+      });
+    },
+    render: function() {
+      this.$el.html(this.template);
+    }
+  })
 
   // ------------------------- Router -------------------------
   var Router = Backbone.Router.extend({
@@ -365,8 +452,8 @@ $(function() {
         model: eventModel
       });
 
-      this.listenTo(rsvp, 'sync', function(uE) {
-        this.navigate('/events/' + uE.get('id'), true);
+      this.listenTo(rsvp, 'sync', function(rsvp) {
+        this.navigate('/events/' + rsvp.get('event_id'), true);
       }.bind(this))
 
       formView.render();
@@ -375,7 +462,9 @@ $(function() {
       var barbecue = new Event({
         id: event_id
       });
-      var rsvpCollection = new RsvpCollection({event_id: event_id})
+      var rsvpCollection = new RsvpCollection({
+        event_id: event_id
+      })
       rsvpCollection.fetch();
 
       // var supplyCollection = new SupplyCollection({event_id: event_id})
@@ -395,8 +484,8 @@ $(function() {
   });
 
   // hit GET /sessions 
-    $.getJSON('/sessions').done(function(user) {
-      window.myRouter = new Router(new User(user));
-      Backbone.history.start();
-    });
+  $.getJSON('/sessions').done(function(user) {
+    window.myRouter = new Router(new User(user));
+    Backbone.history.start();
+  });
 });
