@@ -1,9 +1,34 @@
 body {
     background: white ;
+    font-family: 'Raleway', sans-serif;
+    line-height: 2;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+button, .button {
+  background-color: yellowgreen;
+  border-color: yellowgreen;
+}
+
+a {
+  color: yellowgreen;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+.ui-button-text {
+  font-family: 'Raleway', sans-serif;;
 }
 
 .header{
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .footer{
@@ -85,7 +110,7 @@ ol.steps li {
   display: inline-block;
   text-align: center;
   line-height: 3em;
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
 ol.steps[data-steps="2"] li { width: 49%; }

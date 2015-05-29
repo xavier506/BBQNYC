@@ -10,7 +10,7 @@ module Api
       @rsvp = Rsvp.create({user_id: params[:user_id], event_id: params[:event_id]})
       @user = User.find(params[:user_id])
       @event = Event.find(params[:event_id])
-      @link = "http://localhost:3000/login?email=" + @user.email + "&" + @event.id.to_s
+      @link = "http://localhost:3000/login?email=" + @user.email + "&event_id=" + @event.id.to_s
       UserNotifier.send_rsvp_email(@user, @event, @link).deliver
       render json: @rsvp
     end

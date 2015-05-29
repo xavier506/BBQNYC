@@ -64,6 +64,20 @@ $(function() {
     }
   })
 
+  // ------------------------- Views -------------------------
+
+  var RsvpTableView = Backbone.View.extend({
+    initialize: function(opts) {
+      this.model = opts.model
+      console.log(this.model)
+    },
+    tagName: 'tr',
+    template: _.template($('script[data-id="guest-template"]').text()),
+    render: function() {
+      this.$el.html(this.template(this.model.attributes))
+    }
+  });
+
   // ------------------------- Collection Views -------------------------
   var LocationsCollectionView = Backbone.View.extend({
 
@@ -166,7 +180,7 @@ $(function() {
 
         google.maps.event.addListener(marker, 'click', function() {
 
-          var html = "<div id=iw-content><img class='iw-image' src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p class='iw-info'><b>location:</b> " + park.location + "<br/><b>address: </b><em>" + park.address + "</em><br/><b>park hours: </b>" + park.hours + "</p><span class='iw-ratings'>&hearts; " + park.rating + "</span><a class='iw-website' href='" + park.website + "' target='_blank'>visit park website</a><p class='iw-description'>" + park.description + "</p><a class='button' href='/#create?location_id=" + park.id + "'>Grill Here</a></div>";
+          var html = "<div id=iw-content><img class='iw-image' src='" + park.photo_url + "' /><h3>" + park.name + "</h3><p class='iw-info'><b>Location:</b> " + park.location + "<br/><b>Address: </b><em>" + park.address + "</em><br/><b>Park Hours: </b>" + park.hours + "</p><span class='iw-ratings'>&hearts; " + park.rating + "</span><a class='iw-website' href='" + park.website + "' target='_blank'>Visit park website</a><p class='iw-description'>" + park.description + "</p><a class='button' href='/#create?location_id=" + park.id + "'>Grill Here</a></div>";
 
           iw = new google.maps.InfoWindow({
             content: html,
@@ -345,7 +359,6 @@ $(function() {
     // 'precompile' templates...confusing underscore way of doing this
     template: _.template($('script[data-id="event-show-view"]').text()),
     render: function() {
-      console.log(this.model.attributes)
       this.$el.html(this.template(this.model.attributes));
       var rsvpView = new RsvpView({
         model: this.rsvp,
@@ -360,7 +373,7 @@ $(function() {
       $(".steps li:nth-child(1)").addClass('done').removeClass('to-do');
       $(".steps li:nth-child(2)").addClass('done').removeClass('to-do');
       $(".steps li:nth-child(3)").addClass('done').removeClass('to-do');
-      $("#radio").buttonset();
+      // $("#radio").buttonset();
     },
 
   });
@@ -421,8 +434,35 @@ $(function() {
     },
     render: function() {
       this.$el.html(this.template);
+      var guestListView = new GuestListView({collection: this.collection, el: $('#guestlist-view')})
+      // $('tbody[data-id="guestlist-table"]').html(guestListView.$el)
     }
   })
+
+  var GuestListView = Backbone.View.extend({
+    initialize: function(opts) {
+      this.collection = opts.collection
+      this.collection.each(this.addGuest)
+      this.listenTo(this.collection, 'add', this.addGuest)
+      this.render();
+    },
+    template: _.template($('script[data-id="guestlist-template"]').text()),
+    addGuest: function(rsvpModel) {
+      var user = new User({id: rsvpModel.get('user_id')});
+      console.log(rsvpModel)
+      user.fetch({
+        success: function() {
+          var rsvp = new RsvpTableView({model: user});
+          rsvp.render();
+          $('tbody[data-id="guestlist-table"]').append(rsvp.$el)
+        }
+      });
+    },
+    render: function() {
+      this.$el.html(this.template);
+    }
+
+  });
 
   // ------------------------- Router -------------------------
   var Router = Backbone.Router.extend({
