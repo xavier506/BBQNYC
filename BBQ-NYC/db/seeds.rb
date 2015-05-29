@@ -13,7 +13,7 @@ Supply.delete_all
 Rsvp.delete_all
 
 user1 = User.create(name: "Julia Becker", email: "jcbecker26@gmail.com")
-user2 = User.create(name: "Xavier Fernandex", email: "xavier@gmail.com")
+user2 = User.create(name: "Xavier Fernandez", email: "xavier@crservers.com")
 user3 = User.create(name: "Kangil Lee", email: "klee@gmail.com")
 user4 = User.create(name: "Adam Abdelaziz", email: "a.j.abdelaziz@gmail.com")
 

@@ -3,7 +3,7 @@ module Api
 
     def create
       event = Event.create({
-      name: params[:name], hashtag: params[:hashtag], date: params[:date], time: params[:time], description: params[:description]})
+      name: params[:name], hashtag: params[:hashtag], date: params[:date], time: params[:time], description: params[:description], location_id: params[:location_id]})
       event.save
 
       render json: event

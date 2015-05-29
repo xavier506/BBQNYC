@@ -233,6 +233,7 @@ $(function() {
       this.listenTo(this.model, 'sync', this.addUserToEvent);
       this.rsvp = opts.rsvp;
       this.currentUser = opts.currentUser;
+      this.location_id = opts.location_id;
     },
     el: $('#main'),
     template: $('script[data-id="create-event-view"]').text(),
@@ -299,7 +300,8 @@ $(function() {
         hashtag: hashtag,
         date: date,
         description: description,
-        time: time
+        time: time,
+        location_id: this.location_id
       };
       this.model.save(newEvent);
     },
@@ -343,9 +345,8 @@ $(function() {
   // Event Details View
   var EventDetailsView = Backbone.View.extend({
     initialize: function(options) {
-      // Event
+      console.log(this.model)
       this.model = options.model;
-      // Current user
       this.user = options.user;
       this.rsvpCollection = options.rsvpCollection
       this.supplyCollection = options.supplyCollection
@@ -489,9 +490,9 @@ $(function() {
       var formView = new EventFormView({
         currentUser: this.currentUser,
         rsvp: rsvp,
-        model: eventModel
+        model: eventModel,
+        location_id: id
       });
-
       this.listenTo(rsvp, 'sync', function(rsvp) {
         this.navigate('/events/' + rsvp.get('event_id'), true);
       }.bind(this))
@@ -523,7 +524,6 @@ $(function() {
     }
   });
 
-  // hit GET /sessions 
   $.getJSON('/sessions').done(function(user) {
     window.myRouter = new Router(new User(user));
     Backbone.history.start();
