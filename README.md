@@ -1,10 +1,6 @@
-Hosted at http://104.236.103.248:3000
-
 ![I ♥ BBQ](/docs/logos/vertical-logo-small.png)
 
 ## General Assembly WDI Project 3
-### Group Pikachu
-
 This app is a BBQ planning app for NYC. City-wide bbq locations are displayed on a map of NYC. A BBQ planner can select a location and set a date, time for an event. Once the event is created a user can invite their friends via email. All event invitees can access the event details, and RSVP to the event.
 
 
